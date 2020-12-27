@@ -1,0 +1,159 @@
+﻿<Window x:Class="WPF_projekt.AdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_projekt"
+        mc:Ignorable="d"
+        Title="AdminWindow" Height="450" Width="800" FontSize="18">
+    <Grid>
+        <TabControl TabStripPlacement="Left" HorizontalContentAlignment="Left">
+            <TabItem Header="Magazyn">
+                <!--Magazyn-->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Label FontSize="30" HorizontalAlignment="Center" FontWeight="Bold" Margin="10">Produkty wymagające uzupełnienia</Label>
+                    <ListBox Grid.Row="1" BorderBrush="Black" BorderThickness="3" Margin="5">
+                        <!--Przykladowe dane-->
+                        <ListBoxItem HorizontalContentAlignment="Stretch" BorderBrush="DarkGray" BorderThickness="1" Margin="1, 1">
+                            <DockPanel>
+                                <Image DockPanel.Dock="Left" Height="80" Margin="5" Source="/Images/kebab.jpg"></Image>
+                                <DockPanel DockPanel.Dock="Right">
+                                    <Label DockPanel.Dock="Top" Margin="10">Ilość: 99</Label>
+                                    <Button DockPanel.Dock="Bottom" Width="100" Height="30" Margin="10">Uzupełnij</Button>
+                                    <Grid></Grid>
+                                </DockPanel>
+                                <Label>Jakies ogólnikowe informacje</Label>
+                            </DockPanel>
+                        </ListBoxItem>
+                        <ListBoxItem HorizontalContentAlignment="Stretch" BorderBrush="DarkGray" BorderThickness="1" Margin="1, 1">
+                            <DockPanel>
+                                <Image DockPanel.Dock="Left" Height="80" Margin="5" Source="/Images/kebab.jpg"></Image>
+                                <DockPanel DockPanel.Dock="Right">
+                                    <Label DockPanel.Dock="Top" Margin="10">Ilość: 99</Label>
+                                    <Button DockPanel.Dock="Bottom" Width="100" Height="30" Margin="10">Uzupełnij</Button>
+                                    <Grid></Grid>
+                                </DockPanel>
+                                <Label>Jakies ogólnikowe informacje</Label>
+                            </DockPanel>
+                        </ListBoxItem>
+                        <ListBoxItem HorizontalContentAlignment="Stretch" BorderBrush="DarkGray" BorderThickness="1" Margin="1, 1">
+                            <DockPanel>
+                                <Image DockPanel.Dock="Left" Height="80" Margin="5" Source="/Images/kebab.jpg"></Image>
+                                <DockPanel DockPanel.Dock="Right">
+                                    <Label DockPanel.Dock="Top" Margin="10">Ilość: 99</Label>
+                                    <Button DockPanel.Dock="Bottom" Width="100" Height="30" Margin="10">Uzupełnij</Button>
+                                    <Grid></Grid>
+                                </DockPanel>
+                                <Label>Jakies ogólnikowe informacje</Label>
+                            </DockPanel>
+                        </ListBoxItem>
+                        <ListBoxItem HorizontalContentAlignment="Stretch" BorderBrush="DarkGray" BorderThickness="1" Margin="1, 1">
+                            <DockPanel>
+                                <Image DockPanel.Dock="Left" Height="80" Margin="5" Source="/Images/kebab.jpg"></Image>
+                                <DockPanel DockPanel.Dock="Right">
+                                    <Label DockPanel.Dock="Top" Margin="10">Ilość: 99</Label>
+                                    <Button DockPanel.Dock="Bottom" Width="100" Height="30" Margin="10">Uzupełnij</Button>
+                                    <Grid></Grid>
+                                </DockPanel>
+                                <Label>Jakies ogólnikowe informacje</Label>
+                            </DockPanel>
+                        </ListBoxItem>
+                    </ListBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Klienci">
+                <!--Klienci-->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.ColumnSpan="2" FontSize="30" HorizontalAlignment="Center" FontWeight="Bold" Margin="10">Spis zarejestrowanych klientów</Label>
+                    <ListBox Grid.Row="1" BorderBrush="Black" BorderThickness="3" Margin="5">
+                        <ListBoxItem HorizontalContentAlignment="Stretch" BorderBrush="DarkGray" BorderThickness="1" Margin="1, 1">
+                            <Label>Jakieś ogólne dane na temat klienta</Label>
+                        </ListBoxItem>
+                        <ListBoxItem HorizontalContentAlignment="Stretch" BorderBrush="DarkGray" BorderThickness="1" Margin="1, 1">
+                            <Label>Jakieś ogólne dane na temat klienta</Label>
+                        </ListBoxItem>
+                        <ListBoxItem HorizontalContentAlignment="Stretch" BorderBrush="DarkGray" BorderThickness="1" Margin="1, 1">
+                            <Label>Jakieś ogólne dane na temat klienta</Label>
+                        </ListBoxItem>
+                        <ListBoxItem HorizontalContentAlignment="Stretch" BorderBrush="DarkGray" BorderThickness="1" Margin="1, 1">
+                            <Label>Jakieś ogólne dane na temat klienta</Label>
+                        </ListBoxItem>
+                    </ListBox>
+                    <GroupBox Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="3" Margin="5">
+                        <TextBlock>Kontener ze<LineBreak/>szczegółowymi danymi<LineBreak/>
+                        o danym kliencie.<LineBreak/>Bez problemu moge<LineBreak/>
+                        dodać tu jakieś obrazki,<LineBreak/>przyciski itp.</TextBlock>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Zamówienia">
+                <!--Zamówienia-->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.ColumnSpan="2" FontSize="30" HorizontalAlignment="Center" FontWeight="Bold" Margin="10">Podgląd zamówień</Label>
+                    <ListBox Grid.Row="1" BorderBrush="Black" BorderThickness="3" Margin="5">
+                        <ListBoxItem HorizontalContentAlignment="Stretch" BorderBrush="DarkGray" BorderThickness="1" Margin="1, 1">
+                            <Label>Jakieś ogólne dane na temat zamówienia</Label>
+                        </ListBoxItem>
+                        <ListBoxItem HorizontalContentAlignment="Stretch" BorderBrush="DarkGray" BorderThickness="1" Margin="1, 1">
+                            <Label>Jakieś ogólne dane na temat zamówienia</Label>
+                        </ListBoxItem>
+                        <ListBoxItem HorizontalContentAlignment="Stretch" BorderBrush="DarkGray" BorderThickness="1" Margin="1, 1">
+                            <Label>Jakieś ogólne dane na temat zamówienia</Label>
+                        </ListBoxItem>
+                        <ListBoxItem HorizontalContentAlignment="Stretch" BorderBrush="DarkGray" BorderThickness="1" Margin="1, 1">
+                            <Label>Jakieś ogólne dane na temat zamówienia</Label>
+                        </ListBoxItem>
+                    </ListBox>
+                    <GroupBox Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="3">
+                        <TextBlock>Kontener ze<LineBreak/>szczegółowymi danymi<LineBreak/>
+                        o danym zamówieniu.<LineBreak/>Bez problemu moge<LineBreak/>
+                        dodać tu jakieś obrazki,<LineBreak/>przyciski itp.</TextBlock>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Profil">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.ColumnSpan="3" FontSize="30" HorizontalAlignment="Center" FontWeight="Bold" Margin="10">Profil</Label>
+                    <StackPanel Grid.Row="1" Grid.Column="1">
+                        <Label>Nazwa użytkownika: [nazwa]</Label>
+                        <Label>Poczta: [adres]</Label>
+                        <Label>Hasło: [ha***]</Label>
+                        <Label>Nwm, hasło jest chyba bez sensu</Label>
+                        <Label>Nie wiem co tu dać</Label>
+                        <Button Height="30" Width="100" Margin="0,30">Wyloguj</Button>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        
+    </Grid>
+</Window>
