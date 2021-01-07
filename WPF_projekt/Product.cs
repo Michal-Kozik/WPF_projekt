@@ -15,7 +15,7 @@ namespace WPF_projekt
         public int Amount { get; set; }
         public string EverythingToString
         {
-            get { return $"{Name} {Description} {Price} {Amount}"; }
+            get { return $"Nazwa: {Name}\nOpis: {Description}\nCena: {Price}\nIlość: {Amount}"; }
         }
 
         //metody
