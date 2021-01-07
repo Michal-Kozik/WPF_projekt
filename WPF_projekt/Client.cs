@@ -8,16 +8,16 @@ namespace WPF_projekt
 {
     public class Client
     {
-        //pola
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string PhoneNumber { get; set; }
-        public string Details { get; set; }
-        public string EverythingToString
+        // pola
+        public string name { get; set; }
+        public string surname { get; set; }
+        public string phoneNumber { get; set; }
+        public string details { get; set; }
+        public string everythingToString
         {
-            get { return $"Imię: {Name}\nNazwisko: {Surname}\nNr telefonu: {PhoneNumber}"; }
+            get { return $"Imię: {name}\nNazwisko: {surname}\nNr telefonu: {phoneNumber}"; }
         }
 
-        //metody
+        // metody
     }
 }

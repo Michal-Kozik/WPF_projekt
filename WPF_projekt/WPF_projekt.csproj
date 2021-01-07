@@ -59,6 +59,7 @@
       <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Client.cs" />
+    <Compile Include="Order.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>

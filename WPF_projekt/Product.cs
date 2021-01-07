@@ -8,20 +8,16 @@ namespace WPF_projekt
 {
     public class Product
     {
-        //pola
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public decimal Price { get; set; }
-        public int Amount { get; set; }
-        public string EverythingToString
+        // pola
+        public string name { get; set; }
+        public string description { get; set; }
+        public decimal price { get; set; }
+        public int amount { get; set; }
+        public string everythingToString
         {
-            get { return $"Nazwa: {Name}\nOpis: {Description}\nCena: {Price}\nIlość: {Amount}"; }
+            get { return $"Nazwa: {name}\nOpis: {description}\nCena: {price}\nIlość: {amount}"; }
         }
 
-        //metody
-        public override string ToString()
-        {
-            return $"{Name} {Description} {Price} {Amount}";
-        }
+        // metody
     }
 }

@@ -17,7 +17,7 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
                     <Label FontSize="30" HorizontalAlignment="Center" FontWeight="Bold" Margin="10">Produkty wymagające uzupełnienia</Label>
-                    <ListBox Name="MagazineListBox" Grid.Row="1" BorderBrush="Black" BorderThickness="3" Margin="5" DisplayMemberPath="EverythingToString">
+                    <ListBox Name="MagazineListBox" Grid.Row="1" BorderBrush="Black" BorderThickness="3" Margin="5" DisplayMemberPath="everythingToString">
                         <!--Przykladowe dane-->
                         <!--
                         <ListBoxItem HorizontalContentAlignment="Stretch" BorderBrush="DarkGray" BorderThickness="1" Margin="1, 1">
@@ -80,7 +80,7 @@
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.ColumnSpan="2" FontSize="30" HorizontalAlignment="Center" FontWeight="Bold" Margin="10">Spis zarejestrowanych klientów</Label>
-                    <ListBox Name="ClientsListBox" Grid.Row="1" BorderBrush="Black" BorderThickness="3" Margin="5" DisplayMemberPath="EverythingToString">
+                    <ListBox Name="ClientsListBox" Grid.Row="1" BorderBrush="Black" BorderThickness="3" Margin="5" DisplayMemberPath="everythingToString">
                         <!--
                         <ListBoxItem HorizontalContentAlignment="Stretch" BorderBrush="DarkGray" BorderThickness="1" Margin="1, 1">
                             <Label>Jakieś ogólne dane na temat klienta</Label>
@@ -93,7 +93,7 @@
                         o danym kliencie.<LineBreak/>Bez problemu moge<LineBreak/>
                         dodać tu jakieś obrazki,<LineBreak/>przyciski itp.</TextBlock>
                         -->
-                        <TextBlock TextWrapping="Wrap" Text="{Binding Path=Details}"></TextBlock>
+                        <TextBlock TextWrapping="Wrap" Text="{Binding Path=details}"></TextBlock>
                     </GroupBox>
                 </Grid>
             </TabItem>
@@ -109,24 +109,20 @@
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
                     <Label Grid.ColumnSpan="2" FontSize="30" HorizontalAlignment="Center" FontWeight="Bold" Margin="10">Podgląd zamówień</Label>
-                    <ListBox Grid.Row="1" BorderBrush="Black" BorderThickness="3" Margin="5">
+                    <ListBox Name="OrdersListBox" Grid.Row="1" BorderBrush="Black" BorderThickness="3" Margin="5" DisplayMemberPath="everythingToString">
+                        <!--
                         <ListBoxItem HorizontalContentAlignment="Stretch" BorderBrush="DarkGray" BorderThickness="1" Margin="1, 1">
                             <Label>Jakieś ogólne dane na temat zamówienia</Label>
                         </ListBoxItem>
-                        <ListBoxItem HorizontalContentAlignment="Stretch" BorderBrush="DarkGray" BorderThickness="1" Margin="1, 1">
-                            <Label>Jakieś ogólne dane na temat zamówienia</Label>
-                        </ListBoxItem>
-                        <ListBoxItem HorizontalContentAlignment="Stretch" BorderBrush="DarkGray" BorderThickness="1" Margin="1, 1">
-                            <Label>Jakieś ogólne dane na temat zamówienia</Label>
-                        </ListBoxItem>
-                        <ListBoxItem HorizontalContentAlignment="Stretch" BorderBrush="DarkGray" BorderThickness="1" Margin="1, 1">
-                            <Label>Jakieś ogólne dane na temat zamówienia</Label>
-                        </ListBoxItem>
+                        -->
                     </ListBox>
-                    <GroupBox Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="3">
+                    <GroupBox DataContext="{Binding ElementName=OrdersListBox, Path=SelectedItem}" Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="3">
+                        <!--
                         <TextBlock>Kontener ze<LineBreak/>szczegółowymi danymi<LineBreak/>
                         o danym zamówieniu.<LineBreak/>Bez problemu moge<LineBreak/>
                         dodać tu jakieś obrazki,<LineBreak/>przyciski itp.</TextBlock>
+                        -->
+                        <TextBlock TextWrapping="Wrap" Text="{Binding Path=details}"></TextBlock>
                     </GroupBox>
                 </Grid>
             </TabItem>

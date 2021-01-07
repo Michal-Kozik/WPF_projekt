@@ -20,26 +20,32 @@ namespace WPF_projekt
     /// </summary>
     public partial class AdminWindow : Window
     {
-        public Collection<Product> Products { get; } = new ObservableCollection<Product>();
-        public Collection<Client> Clients { get; } = new ObservableCollection<Client>();
+        public Collection<Product> products { get; } = new ObservableCollection<Product>();
+        public Collection<Client> clients { get; } = new ObservableCollection<Client>();
+        public Collection<Order> orders { get; } = new ObservableCollection<Order>();
 
         public AdminWindow()
         {
             InitializeComponent();
 
-            Products.Add(new Product { Name = "item1", Description = "dgshkjagfdkjhfga", Price = 9.99M, Amount = 10 });
-            Products.Add(new Product { Name = "item2", Description = "dgshkjagfdkjhfga", Price = 19.99M, Amount = 11 });
-            Products.Add(new Product { Name = "item3", Description = "dgshkjagfdkjhfga", Price = 29.99M, Amount = 12 });
+            products.Add(new Product { name = "item1", description = "dgshkjagfdkjhfga", price = 9.99M, amount = 10 });
+            products.Add(new Product { name = "item2", description = "dgshkjagfdkjhfga", price = 19.99M, amount = 11 });
+            products.Add(new Product { name = "item3", description = "dgshkjagfdkjhfga", price = 29.99M, amount = 12 });
 
-            Clients.Add(new Client { Name = "Michał", Surname = "Pol", PhoneNumber = "123456789", Details = "Szczegółowe informacje Pola" });
-            Clients.Add(new Client { Name = "Mateusz", Surname = "Borek", PhoneNumber = "725602849", Details = "Szczegółowe informacje Borka" });
-            Clients.Add(new Client { Name = "Tomasz", Surname = "Smokowski", PhoneNumber = "827028124", Details = "Szczegółowe informacje Smokowskiego" });
+            clients.Add(new Client { name = "Michał", surname = "Pol", phoneNumber = "123456789", details = "Szczegółowe informacje Pola" });
+            clients.Add(new Client { name = "Mateusz", surname = "Borek", phoneNumber = "725602849", details = "Szczegółowe informacje Borka" });
+            clients.Add(new Client { name = "Tomasz", surname = "Smokowski", phoneNumber = "827028124", details = "Szczegółowe informacje Smokowskiego" });
+
+            orders.Add(new Order(1, products, clients.ElementAt(0)));
+            orders.Add(new Order(2, products, clients.ElementAt(1)));
+            orders.Add(new Order(3, products, clients.ElementAt(2)));
         }
 
         private void LoadProducts(object sender, RoutedEventArgs e)
         {
-            MagazineListBox.ItemsSource = Products;
-            ClientsListBox.ItemsSource = Clients;
+            MagazineListBox.ItemsSource = products;
+            ClientsListBox.ItemsSource = clients;
+            OrdersListBox.ItemsSource = orders;
         }
     }
 }
