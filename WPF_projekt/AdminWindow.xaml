@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_projekt"
         mc:Ignorable="d"
-        Title="AdminWindow" Height="450" Width="800" FontSize="18">
+        Title="AdminWindow" Height="450" Width="800" FontSize="18"
+        Loaded="LoadProducts">
     <Grid>
         <TabControl TabStripPlacement="Left" HorizontalContentAlignment="Left">
             <TabItem Header="Magazyn">
@@ -16,8 +17,9 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
                     <Label FontSize="30" HorizontalAlignment="Center" FontWeight="Bold" Margin="10">Produkty wymagające uzupełnienia</Label>
-                    <ListBox Grid.Row="1" BorderBrush="Black" BorderThickness="3" Margin="5">
+                    <ListBox Name="MagazineListBox" Grid.Row="1" BorderBrush="Black" BorderThickness="3" Margin="5" DisplayMemberPath="EverythingToString">
                         <!--Przykladowe dane-->
+                        <!--
                         <ListBoxItem HorizontalContentAlignment="Stretch" BorderBrush="DarkGray" BorderThickness="1" Margin="1, 1">
                             <DockPanel>
                                 <Image DockPanel.Dock="Left" Height="80" Margin="5" Source="/Images/kebab.jpg"></Image>
@@ -62,6 +64,7 @@
                                 <Label>Jakies ogólnikowe informacje</Label>
                             </DockPanel>
                         </ListBoxItem>
+                        -->
                     </ListBox>
                 </Grid>
             </TabItem>
