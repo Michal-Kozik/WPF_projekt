@@ -18,6 +18,10 @@ namespace WPF_projekt
             get { return $"Imię: {name}\nNazwisko: {surname}\nNr telefonu: {phoneNumber}"; }
         }
 
+        public string login { get; set; }
+        public string password { get; set; }
+        public bool adminRights { get; set; }
+
         // metody
     }
 }

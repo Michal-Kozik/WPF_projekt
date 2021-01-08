@@ -14,14 +14,18 @@ using System.Windows.Shapes;
 
 namespace WPF_projekt
 {
-    /// <summary>
-    /// Interaction logic for ClientWindow.xaml
-    /// </summary>
     public partial class ClientWindow : Window
     {
-        public ClientWindow()
+        private Client client;
+
+        /* Konstruktor */
+        public ClientWindow(Client client)
         {
             InitializeComponent();
+
+            this.client = client;
+            ProfileTabItem.Header = client.login;
         }
+
     }
 }

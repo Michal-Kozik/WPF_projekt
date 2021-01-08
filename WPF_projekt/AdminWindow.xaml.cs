@@ -20,14 +20,25 @@ namespace WPF_projekt
     /// </summary>
     public partial class AdminWindow : Window
     {
-        public Collection<Product> products { get; } = new ObservableCollection<Product>();
-        public Collection<Client> clients { get; } = new ObservableCollection<Client>();
-        public Collection<Order> orders { get; } = new ObservableCollection<Order>();
+        private Collection<Product> products;
+        private Collection<Client> clients;
+        private Collection<Order> orders;
 
-        public AdminWindow()
+        private Client client;
+
+        /* Konstruktor */
+        public AdminWindow(Client client)
         {
             InitializeComponent();
 
+            this.client = client;
+            ProfileTabItem.Header = client.login;
+
+            products = MainWindow.GetProducts();
+            clients = MainWindow.GetClients();
+            orders = MainWindow.GetOrders();
+
+            /*
             products.Add(new Product { name = "item1", description = "dgshkjagfdkjhfga", price = 9.99M, amount = 10 });
             products.Add(new Product { name = "item2", description = "dgshkjagfdkjhfga", price = 19.99M, amount = 11 });
             products.Add(new Product { name = "item3", description = "dgshkjagfdkjhfga", price = 29.99M, amount = 12 });
@@ -39,6 +50,7 @@ namespace WPF_projekt
             orders.Add(new Order(1, products, clients.ElementAt(0)));
             orders.Add(new Order(2, products, clients.ElementAt(1)));
             orders.Add(new Order(3, products, clients.ElementAt(2)));
+            */
         }
 
         private void LoadProducts(object sender, RoutedEventArgs e)

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_projekt"
         mc:Ignorable="d"
-        Title="ClientWindow" Height="450" Width="800">
+        Title="ClientWindow" Height="450" Width="800" FontSize="18">
     <Grid>
         <TabControl TabStripPlacement="Left" HorizontalContentAlignment="Left">
             <!--Home-->
@@ -105,7 +105,7 @@
                     </DockPanel>
                 </Grid>
             </TabItem>
-            <TabItem Header="Profil">
+            <TabItem Name="ProfileTabItem" Header="Profil">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>

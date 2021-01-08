@@ -126,7 +126,7 @@
                     </GroupBox>
                 </Grid>
             </TabItem>
-            <TabItem Header="Profil">
+            <TabItem Name="ProfileTabItem" Header="Profil">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
