@@ -9,6 +9,9 @@ namespace WPF_projekt
     public class Product
     {
         // pola
+        public static int freeID { get; set; }
+        public int id { get; set; }
+
         public string name { get; set; }
         public string description { get; set; }
         public decimal price { get; set; }
@@ -16,6 +19,17 @@ namespace WPF_projekt
         public string everythingToString
         {
             get { return $"Nazwa: {name}\nOpis: {description}\nCena: {price}\nIlość: {amount}"; }
+        }
+
+        // konstruktory
+        static Product()
+        {
+            freeID = 0;
+        }
+        public Product()
+        {
+            id = freeID;
+            freeID++;
         }
 
         // metody

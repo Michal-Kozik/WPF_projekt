@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +25,7 @@ namespace WPF_projekt
         private Collection<Product> products;
         private Collection<Client> clients;
         private Collection<Order> orders;
-        private Collection<Product> cart = new ObservableCollection<Product>();
+        private ObservableCollection<Product> cart = new ObservableCollection<Product>();
 
         /* Konstruktor */
         public ClientWindow(Client client)
@@ -45,6 +46,7 @@ namespace WPF_projekt
         {
             ProductsListBox.ItemsSource = products;
             CartListBox.ItemsSource = cart;
+            cart.CollectionChanged += CalculatePrice;
             ProductsListBox.SelectionChanged += ItemSelected;
         }
 
@@ -66,6 +68,17 @@ namespace WPF_projekt
         private void ItemSelected(object sender, RoutedEventArgs e)
         {
             AddButton.IsEnabled = true;
+        }
+
+        // Podliczenie zamowienia
+        private void CalculatePrice(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            decimal result = 0;
+            foreach (Product p in cart)
+            {
+                result += p.price;
+            }
+            PriceLabel.Content = $"Cena: {result}";
         }
     }
 }
