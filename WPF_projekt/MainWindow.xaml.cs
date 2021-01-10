@@ -21,9 +21,9 @@ namespace WPF_projekt
     /// </summary>
     public partial class MainWindow : Window
     {
-        private static Collection<Product> products { get; } = new ObservableCollection<Product>();
-        private static Collection<Client> clients { get; } = new ObservableCollection<Client>();
-        private static Collection<Order> orders { get; } = new ObservableCollection<Order>();
+        private static Collection<Product> products = new ObservableCollection<Product>();
+        private static Collection<Client> clients = new ObservableCollection<Client>();
+        private static Collection<Order> orders = new ObservableCollection<Order>();
 
         private static Dictionary<string, Client> clientsMap = new Dictionary<string, Client>();
 
