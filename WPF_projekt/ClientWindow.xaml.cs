@@ -123,5 +123,40 @@ namespace WPF_projekt
             }
             AddButton.IsEnabled = false;
         }
+
+        // Wyszukiwanie produktow na podstawie tekstu
+        private void FindByText(object sender, RoutedEventArgs e)
+        {
+            string searchedName = SearchTextBox.Text;
+            searchedName = searchedName.ToUpper();
+            ObservableCollection<Product> result = new ObservableCollection<Product>();
+            // Jezeli sa produkty zwrocone po wyszukiwaniu wg kategorii
+            // to wsrod nich bedzie szukany produkt wg tekstu.
+            if (searched.Count() != 0)
+            {
+                foreach (Product p in searched)
+                {
+                    if (p.name.ToUpper().Contains(searchedName) || p.category.ToUpper().Contains(searchedName))
+                    {
+                        result.Add(p);
+                    }
+                }
+                ProductsListBox.ItemsSource = result;
+            }
+            // Jezeli nie wyszukiwano produktow wg kategorii
+            // to wyszukiwanie wg tektsu bedzie wsrod wszystkich produktow
+            else
+            {
+                foreach (Product p in products)
+                {
+                    if (p.name.ToUpper().Contains(searchedName) || p.category.ToUpper().Contains(searchedName))
+                    {
+                        result.Add(p);
+                    }
+                }
+                ProductsListBox.ItemsSource = result;
+            }
+            AddButton.IsEnabled = false;
+        }
     }
 }
