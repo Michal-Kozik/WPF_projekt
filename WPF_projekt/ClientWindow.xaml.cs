@@ -25,7 +25,10 @@ namespace WPF_projekt
         private Collection<Product> products;
         private Collection<Client> clients;
         private Collection<Order> orders;
+        // Produkty w koszyku.
         private ObservableCollection<Product> cart = new ObservableCollection<Product>();
+        // Produkty szukane wedlug kategorii.
+        private ObservableCollection<Product> searched = new ObservableCollection<Product>();
 
         /* Konstruktor */
         public ClientWindow(Client client)
@@ -41,7 +44,7 @@ namespace WPF_projekt
 
         }
 
-        // Zaladowanie danych
+        // Zaladowanie danych.
         private void OnLoad(object sender, RoutedEventArgs e)
         {
             ProductsListBox.ItemsSource = products;
@@ -50,27 +53,26 @@ namespace WPF_projekt
             ProductsListBox.SelectionChanged += ItemSelected;
         }
 
-        // Dodanie produktu do koszyka
+        // Dodanie produktu do koszyka.
         private void AddToCart(object sender, RoutedEventArgs e)
         {
-            // jeszcze nie jestem pewien czy ten if jest potrzebny,
-            // trzeba bedzie do tej metody wrocic jak oprogramujemy kategorie do wszukiwania
+            // ~ jeszcze nie jestem pewien czy ten if jest potrzebny,
             if (ProductsListBox.SelectedIndex >= 0)
             {
-                Product product = products.ElementAt(ProductsListBox.SelectedIndex);
+                Product product = ProductsListBox.SelectedItem as Product;
                 cart.Add(product);
                 MessageBox.Show($"Dodano {product.name} do koszyka.");
                 AddButton.IsEnabled = false;
             }
         }
 
-        // Zaznaczenie przedmiotu na liscie
+        // Zaznaczenie przedmiotu na liscie.
         private void ItemSelected(object sender, RoutedEventArgs e)
         {
             AddButton.IsEnabled = true;
         }
 
-        // Podliczenie zamowienia
+        // Podliczenie zamowienia.
         private void CalculatePrice(object sender, NotifyCollectionChangedEventArgs e)
         {
             decimal result = 0;
@@ -79,6 +81,47 @@ namespace WPF_projekt
                 result += p.price;
             }
             PriceLabel.Content = $"Cena: {result}";
+        }
+        
+        // Wyszukanie produktow wedlug zaznaczonych kategorii.
+        private void Find(object sender, RoutedEventArgs e)
+        {
+            CheckBox checkbox = sender as CheckBox;
+            string searchedCategory = checkbox.Content.ToString();
+            foreach (Product p in products)
+            {
+                if (p.category == searchedCategory)
+                {
+                    searched.Add(p);
+                }
+            }
+            ProductsListBox.ItemsSource = searched;
+            AddButton.IsEnabled = false;
+        }
+
+        // Wyszukiwanie produktow w przypadku odhaczenia kategorii.
+        private void Erase(object sender, RoutedEventArgs e)
+        {
+            CheckBox checkbox = sender as CheckBox;
+            string erasedCategory = checkbox.Content.ToString();
+            List<Product> forDelete = new List<Product>();
+            foreach (Product p in searched)
+            {
+                if (p.category == erasedCategory)
+                {
+                    forDelete.Add(p);
+                }
+            }
+            foreach (Product p in forDelete)
+            {
+                searched.Remove(p);
+            }
+            // Jezeli odhaczone zostana wszystkie kategorie.
+            if (searched.Count() == 0)
+            {
+                ProductsListBox.ItemsSource = products;
+            }
+            AddButton.IsEnabled = false;
         }
     }
 }

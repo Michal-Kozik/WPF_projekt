@@ -14,11 +14,12 @@ namespace WPF_projekt
 
         public string name { get; set; }
         public string description { get; set; }
+        public string category { get; set; }
         public decimal price { get; set; }
         public int amount { get; set; }
         public string everythingToString
         {
-            get { return $"Nazwa: {name}\nOpis: {description}\nCena: {price}\nIlość: {amount}"; }
+            get { return $"Nazwa: {name}\nKategoria: {category}\nOpis: {description}\nCena: {price}\nIlość: {amount}"; }
         }
 
         // konstruktory

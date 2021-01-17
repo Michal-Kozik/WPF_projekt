@@ -32,9 +32,9 @@ namespace WPF_projekt
         {
             InitializeComponent();
 
-            products.Add(new Product { name = "item1", description = "dgshkjagfdkjhfga", price = 9.99M, amount = 10 });
-            products.Add(new Product { name = "item2", description = "dgshkjagfdkjhfga", price = 19.99M, amount = 11 });
-            products.Add(new Product { name = "item3", description = "dgshkjagfdkjhfga", price = 29.99M, amount = 12 });
+            products.Add(new Product { name = "item1", category = "Kategoria 1", description = "dgshkjagfdkjhfga", price = 9.99M, amount = 10 });
+            products.Add(new Product { name = "item2", category = "Kategoria 2", description = "dgshkjagfdkjhfga", price = 19.99M, amount = 11 });
+            products.Add(new Product { name = "item3", category = "Kategoria 3", description = "dgshkjagfdkjhfga", price = 29.99M, amount = 12 });
 
             clients.Add(new Client { name = "Michał", surname = "Pol", phoneNumber = "123456789", details = "Szczegółowe informacje Pola", login = "pol", password = "pol123", adminRights = false });
             clients.Add(new Client { name = "Mateusz", surname = "Borek", phoneNumber = "725602849", details = "Szczegółowe informacje Borka", login = "bor", password = "bor123", adminRights = false });

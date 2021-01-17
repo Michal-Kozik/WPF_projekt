@@ -43,9 +43,10 @@
                     </Grid.ColumnDefinitions>
                     <Label Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="30" FontWeight="Bold" Margin="10">Lista produktów</Label>
                     <StackPanel Grid.Row="1" Margin="30, 50" VerticalAlignment="Top">
-                        <CheckBox >Kategoria 1</CheckBox>
-                        <CheckBox >Kategoria 2</CheckBox>
-                        <CheckBox >Kategoria 3</CheckBox>
+                        <CheckBox Checked="Find" Unchecked="Erase" Content="Kategoria 1"></CheckBox>
+                        <CheckBox Checked="Find" Unchecked="Erase" Content="Kategoria 2"></CheckBox>
+                        <CheckBox Checked="Find" Unchecked="Erase" Content="Kategoria 3"></CheckBox>
+                        <CheckBox Checked="Find" Unchecked="Erase" Content="Kategoria 4"></CheckBox>
                     </StackPanel>
                     <!--przykladowa wizualizacja-->
                     <ListBox Name="ProductsListBox" Grid.Row="1" Grid.Column="1" Margin="10, 0" BorderBrush="Black" BorderThickness="3" DisplayMemberPath="everythingToString">
