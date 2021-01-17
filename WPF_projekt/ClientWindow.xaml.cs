@@ -157,6 +157,7 @@ namespace WPF_projekt
                 ProductsListBox.ItemsSource = result;
             }
             AddButton.IsEnabled = false;
+            SearchTextBox.Text = "";
         }
     }
 }
