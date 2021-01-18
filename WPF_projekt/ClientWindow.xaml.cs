@@ -14,12 +14,13 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
+
 namespace WPF_projekt
 {
     public partial class ClientWindow : Window
     {
         private Client client;
-
 
 
         private Collection<Product> products;
@@ -49,6 +50,7 @@ namespace WPF_projekt
         {
             ProductsListBox.ItemsSource = products;
             CartListBox.ItemsSource = cart;
+            CartListBox.SelectionChanged += ItemSelectedCart;
             cart.CollectionChanged += CalculatePrice;
             ProductsListBox.SelectionChanged += ItemSelected;
         }
@@ -56,20 +58,28 @@ namespace WPF_projekt
         // Dodanie produktu do koszyka.
         private void AddToCart(object sender, RoutedEventArgs e)
         {
-            // ~ jeszcze nie jestem pewien czy ten if jest potrzebny,
+            // ~ jeszcze nie jestem pewien czy ten if jest potrzebny
             if (ProductsListBox.SelectedIndex >= 0)
             {
                 Product product = ProductsListBox.SelectedItem as Product;
                 cart.Add(product);
-                MessageBox.Show($"Dodano {product.name} do koszyka.");
+                ProductsListBox.SelectedIndex = -1;
                 AddButton.IsEnabled = false;
+                OrderButton.IsEnabled = true;
+                MessageBox.Show($"Dodano {product.name} do koszyka.");
             }
         }
 
-        // Zaznaczenie przedmiotu na liscie.
+        // Zaznaczenie przedmiotu na liscie produktow.
         private void ItemSelected(object sender, RoutedEventArgs e)
         {
             AddButton.IsEnabled = true;
+        }
+
+        // Zaznaczenie przedmiotu w koszyku
+        private void ItemSelectedCart(object sender, RoutedEventArgs e)
+        {
+            DeleteButton.IsEnabled = true;
         }
 
         // Podliczenie zamowienia.
@@ -124,7 +134,7 @@ namespace WPF_projekt
             AddButton.IsEnabled = false;
         }
 
-        // Wyszukiwanie produktow na podstawie tekstu
+        // Wyszukiwanie produktow na podstawie tekstu.
         private void FindByText(object sender, RoutedEventArgs e)
         {
             string searchedName = SearchTextBox.Text;
@@ -144,7 +154,7 @@ namespace WPF_projekt
                 ProductsListBox.ItemsSource = result;
             }
             // Jezeli nie wyszukiwano produktow wg kategorii
-            // to wyszukiwanie wg tektsu bedzie wsrod wszystkich produktow
+            // to wyszukiwanie wg tektsu bedzie wsrod wszystkich produktow.
             else
             {
                 foreach (Product p in products)
@@ -158,6 +168,58 @@ namespace WPF_projekt
             }
             AddButton.IsEnabled = false;
             SearchTextBox.Text = "";
+        }
+
+        // Usuniecie przedmiotu z koszyka.
+        private void DeleteFromCart(object sender, RoutedEventArgs e)
+        {
+            // ~ jeszcze nie jestem pewien czy ten if jest potrzebny
+            if (CartListBox.SelectedIndex >= 0)
+            {
+                Product product = CartListBox.SelectedItem as Product;
+                cart.Remove(product);
+                // ~ duplikacja kodu z metody CalculatePrice()
+                decimal result = 0;
+                foreach (Product p in cart)
+                {
+                    result += p.price;
+                }
+                PriceLabel.Content = $"Cena: {result}";
+                if (cart.Count() == 0)
+                    OrderButton.IsEnabled = false;
+                DeleteButton.IsEnabled = false;
+                MessageBox.Show($"Usunięto {product.name} z koszyka.");
+            }
+        }
+
+        // Zlozenie zamowienia.
+        private void MakeOrder(object sender, RoutedEventArgs e)
+        {
+            // Wygenerowanie id zamowienia.
+            DateTime moment = DateTime.Now;
+            string id = "";
+            id += moment.Hour.ToString();
+            id += moment.Minute.ToString();
+            id += moment.Second.ToString();
+            id += moment.Day.ToString();
+            id += moment.Month.ToString();
+            id += moment.Year.ToString();
+            id += client.login;
+
+            // Stworzenie kolekcji z produktami zamowionymi przez klienta.
+            Collection<Product> collection = new Collection<Product>();
+            foreach (Product p in cart)
+            {
+                collection.Add(p);
+            }
+
+            // ~ Dodac order do odpowiedniej kolekcji, tak zeby admin mogl to zobaczyc.
+            Order order = new Order(id, collection, client);
+            cart.Clear();
+            DeleteButton.IsEnabled = false;
+            OrderButton.IsEnabled = false;
+            MessageBox.Show($"Zamówienie zostało złożone pomyślnie.\n" +
+                $"Szczegóły:\n{order.everythingToString}");
         }
     }
 }

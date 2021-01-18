@@ -46,9 +46,9 @@ namespace WPF_projekt
             clientsMap.Add(clients.ElementAt(2).login, clients.ElementAt(2));
             clientsMap.Add(clients.ElementAt(3).login, clients.ElementAt(3));
 
-            orders.Add(new Order(1, products, clients.ElementAt(0)));
-            orders.Add(new Order(2, products, clients.ElementAt(1)));
-            orders.Add(new Order(3, products, clients.ElementAt(2)));
+            orders.Add(new Order("1", products, clients.ElementAt(0)));
+            orders.Add(new Order("2", products, clients.ElementAt(1)));
+            orders.Add(new Order("3", products, clients.ElementAt(2)));
         }
 
         /* Gettery */
