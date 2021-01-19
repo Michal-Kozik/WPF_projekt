@@ -110,7 +110,7 @@
                         <Label>Hasło: [ha***]</Label>
                         <Label>Nwm, hasło jest chyba bez sensu</Label>
                         <Label>Nie wiem co tu dać</Label>
-                        <Button Height="30" Width="100" Margin="0,30">Wyloguj</Button>
+                        <Button Name="LogoutButton" Height="30" Width="100" Margin="0,30">Wyloguj</Button>
                     </StackPanel>
                 </Grid>
             </TabItem>

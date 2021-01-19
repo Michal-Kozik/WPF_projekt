@@ -23,9 +23,9 @@ namespace WPF_projekt
         private Client client;
 
 
-        private Collection<Product> products;
-        private Collection<Client> clients;
-        private Collection<Order> orders;
+        private ObservableCollection<Product> products;
+        private ObservableCollection<Client> clients;
+        private ObservableCollection<Order> orders;
         // Produkty w koszyku.
         private ObservableCollection<Product> cart = new ObservableCollection<Product>();
         // Produkty szukane wedlug kategorii.
@@ -36,13 +36,12 @@ namespace WPF_projekt
         {
             InitializeComponent();
 
-            products = MainWindow.GetProducts();
-            clients = MainWindow.GetClients();
-            orders = MainWindow.GetOrders();
+            products = DataBase.GetProducts();
+            clients = DataBase.GetClients();
+            orders = DataBase.GetOrders();
 
             this.client = client;
             ProfileTabItem.Header = client.login;
-
         }
 
         // Zaladowanie danych.
