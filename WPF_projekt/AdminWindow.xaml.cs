@@ -25,6 +25,7 @@ namespace WPF_projekt
         private ObservableCollection<Order> orders;
 
         private ObservableCollection<Product> needSupply = new ObservableCollection<Product>();
+        private ObservableCollection<Client> searchedClients = new ObservableCollection<Client>();
 
         private Client client;
 
@@ -41,7 +42,7 @@ namespace WPF_projekt
             orders = DataBase.GetOrders();
         }
 
-        // Zaladowanie produktow
+        // Zaladowanie produktow.
         private void LoadProducts(object sender, RoutedEventArgs e)
         {
             // Wyszukiwanie produktow, ktore wymagaja uzupelnienia.
@@ -55,6 +56,30 @@ namespace WPF_projekt
             MagazineListBox.ItemsSource = needSupply;
             ClientsListBox.ItemsSource = clients;
             OrdersListBox.ItemsSource = orders;
+        }
+
+        // Wyszukiwanie klientow wg loginu lub nr telefonu.
+        private void FindClient(object sender, RoutedEventArgs e)
+        {
+            string searched = SearchClientTextBox.Text.ToUpper();
+            // Jezeli wyszukano wg pustego tekstu to zwrocona zostanie cala lista klientow.
+            if (searched == "")
+            {
+                ClientsListBox.ItemsSource = clients;
+            }
+            // W przeciwnym wypadku zwroceni zostana klienci, ktorych login lub nr telefonu bedzie pasowal do wyszukiwania.
+            else
+            {
+                searchedClients.Clear();
+                foreach (Client c in clients)
+                {
+                    if (c.login.ToUpper().Contains(searched) || c.phoneNumber.Contains(searched))
+                    {
+                        searchedClients.Add(c);
+                    }
+                }
+                ClientsListBox.ItemsSource = searchedClients;
+            }
         }
     }
 }

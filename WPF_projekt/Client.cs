@@ -15,7 +15,8 @@ namespace WPF_projekt
         public string details { get; set; }
         public string everythingToString
         {
-            get { return $"Imię: {name}\nNazwisko: {surname}\nNr telefonu: {phoneNumber}"; }
+            //get { return $"Imię: {name}\nNazwisko: {surname}\nNr telefonu: {phoneNumber}"; }
+            get { return $"Login: {login}\nNr telefonu: {phoneNumber}"; }
         }
 
         public string login { get; set; }
