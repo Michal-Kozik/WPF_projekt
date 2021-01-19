@@ -217,8 +217,17 @@ namespace WPF_projekt
             cart.Clear();
             DeleteButton.IsEnabled = false;
             OrderButton.IsEnabled = false;
+            DataBase.AddOrder(order);
             MessageBox.Show($"Zamówienie zostało złożone pomyślnie.\n" +
                 $"Szczegóły:\n{order.everythingToString}");
+        }
+
+        // Wylogowanie sie.
+        private void LogOut(object sender, RoutedEventArgs e)
+        {
+            MainWindow window = new MainWindow();
+            window.Show();
+            Close();
         }
     }
 }

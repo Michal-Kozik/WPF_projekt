@@ -24,6 +24,8 @@ namespace WPF_projekt
         private ObservableCollection<Client> clients;
         private ObservableCollection<Order> orders;
 
+        private ObservableCollection<Product> needSupply = new ObservableCollection<Product>();
+
         private Client client;
 
         /* Konstruktor */
@@ -39,9 +41,18 @@ namespace WPF_projekt
             orders = DataBase.GetOrders();
         }
 
+        // Zaladowanie produktow
         private void LoadProducts(object sender, RoutedEventArgs e)
         {
-            MagazineListBox.ItemsSource = products;
+            // Wyszukiwanie produktow, ktore wymagaja uzupelnienia.
+            foreach (Product p in products)
+            {
+                if (p.amount < 10)
+                {
+                    needSupply.Add(p);
+                }
+            }
+            MagazineListBox.ItemsSource = needSupply;
             ClientsListBox.ItemsSource = clients;
             OrdersListBox.ItemsSource = orders;
         }
