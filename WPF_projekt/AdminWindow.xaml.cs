@@ -97,7 +97,7 @@ namespace WPF_projekt
             Close();
         }
 
-        // Uzupelnienie produktu
+        // Uzupelnienie produktu.
         private void SupplyProduct(object sender, RoutedEventArgs e)
         {
             if (MagazineListBox.SelectedIndex >= 0)

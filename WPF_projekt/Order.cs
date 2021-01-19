@@ -24,12 +24,13 @@ namespace WPF_projekt
             this.id = id;
             this.products = products;
             this.client = client;
-            details = $"Imię kupującego: {client.name}, Nazwisko kupującego: {client.surname}";
+            details = "Szczegóły zamówienia:\n";
+            //details = $"Imię kupującego: {client.name}, Nazwisko kupującego: {client.surname}";
             price = 0;
-            everythingToString = $"ID: {id}\nNr telefonu: {client.phoneNumber}\nProdukty:\n";
+            everythingToString = $"ID: {id}\nLogin: {client.login}\nNr telefonu: {client.phoneNumber}\n";
             foreach (Product p in products)
             {
-                everythingToString += $"- {p.name}\n";
+                details += $"- {p.name}\n";
                 price += p.price;
             }
             everythingToString += $"Cena: {price}";
