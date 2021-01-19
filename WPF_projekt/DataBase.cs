@@ -18,7 +18,7 @@ namespace WPF_projekt
         static DataBase()
         {
             products.Add(new Product { name = "item1", category = "Kategoria 1", description = "dgshkjagfdkjhfga", price = 9.99M, amount = 9 });
-            products.Add(new Product { name = "item2", category = "Kategoria 2", description = "dgshkjagfdkjhfga", price = 19.99M, amount = 10 });
+            products.Add(new Product { name = "item2", category = "Kategoria 2", description = "dgshkjagfdkjhfga", price = 19.99M, amount = 4 });
             products.Add(new Product { name = "item3", category = "Kategoria 3", description = "dgshkjagfdkjhfga", price = 29.99M, amount = 11 });
 
             clients.Add(new Client { name = "Michał", surname = "Pol", phoneNumber = "123456789", details = "Szczegółowe informacje Pola", login = "pol", password = "pol123", adminRights = false });

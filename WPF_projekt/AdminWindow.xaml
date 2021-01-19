@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WPF_projekt"
         mc:Ignorable="d"
         Title="AdminWindow" Height="450" Width="800" FontSize="18"
-        Loaded="LoadProducts">
+        Loaded="OnLoad">
     <Grid>
         <TabControl TabStripPlacement="Left" HorizontalContentAlignment="Left">
             <TabItem Header="Magazyn">
@@ -15,6 +15,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
                         <RowDefinition />
+                        <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
                     <Label FontSize="30" HorizontalAlignment="Center" FontWeight="Bold" Margin="10">Produkty wymagające uzupełnienia</Label>
                     <ListBox Name="MagazineListBox" Grid.Row="1" BorderBrush="Black" BorderThickness="3" Margin="5" DisplayMemberPath="everythingToString">
@@ -66,6 +67,7 @@
                         </ListBoxItem>
                         -->
                     </ListBox>
+                    <Button Name="SupplyButton" Click="SupplyProduct" Grid.Row="2" Height="40" Width="150" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5" IsEnabled="False">Uzupełnij</Button>
                 </Grid>
             </TabItem>
             <TabItem Header="Klienci">
@@ -149,7 +151,7 @@
                         <Label>Hasło: [ha***]</Label>
                         <Label>Nwm, hasło jest chyba bez sensu</Label>
                         <Label>Nie wiem co tu dać</Label>
-                        <Button Height="30" Width="100" Margin="0,30">Wyloguj</Button>
+                        <Button Name="LogoutButton" Click="LogOut" Height="30" Width="100" Margin="0,30">Wyloguj</Button>
                     </StackPanel>
                 </Grid>
             </TabItem>

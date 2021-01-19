@@ -43,7 +43,7 @@ namespace WPF_projekt
         }
 
         // Zaladowanie produktow.
-        private void LoadProducts(object sender, RoutedEventArgs e)
+        private void OnLoad(object sender, RoutedEventArgs e)
         {
             // Wyszukiwanie produktow, ktore wymagaja uzupelnienia.
             foreach (Product p in products)
@@ -56,6 +56,7 @@ namespace WPF_projekt
             MagazineListBox.ItemsSource = needSupply;
             ClientsListBox.ItemsSource = clients;
             OrdersListBox.ItemsSource = orders;
+            MagazineListBox.SelectionChanged += ItemSelected;
         }
 
         // Wyszukiwanie klientow wg loginu lub nr telefonu.
@@ -79,6 +80,33 @@ namespace WPF_projekt
                     }
                 }
                 ClientsListBox.ItemsSource = searchedClients;
+            }
+        }
+
+        // Zaznaczenie przedmiotu wymagajacego uzupelnienia.
+        private void ItemSelected(object sender, RoutedEventArgs e)
+        {
+            SupplyButton.IsEnabled = true;
+        }
+
+        // Wylogowanie sie.
+        private void LogOut(object sender, RoutedEventArgs e)
+        {
+            MainWindow window = new MainWindow();
+            window.Show();
+            Close();
+        }
+
+        // Uzupelnienie produktu
+        private void SupplyProduct(object sender, RoutedEventArgs e)
+        {
+            if (MagazineListBox.SelectedIndex >= 0)
+            {
+                Product product = MagazineListBox.SelectedItem as Product;
+                product.amount += 10;
+                needSupply.Remove(product);
+                SupplyButton.IsEnabled = false;
+                MessageBox.Show($"Uzupełniono produkt - {product.name}");
             }
         }
     }
