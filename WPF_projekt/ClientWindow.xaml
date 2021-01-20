@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="ClientWindow" Height="450" Width="800" FontSize="18"
         Loaded="OnLoad">
+    <Window.Resources>
+        
+    </Window.Resources>
     <Grid>
         <TabControl TabStripPlacement="Left" HorizontalContentAlignment="Left">
             <!--Home-->
@@ -53,16 +56,25 @@
                         <CheckBox Checked="Find" Unchecked="Erase" Content="Kategoria 3"></CheckBox>
                         <CheckBox Checked="Find" Unchecked="Erase" Content="Kategoria 4"></CheckBox>
                     </StackPanel>
-                    <!--przykladowa wizualizacja-->
-                    <ListBox Name="ProductsListBox" Grid.Row="2" Grid.Column="1" Margin="10, 0" BorderBrush="Black" BorderThickness="3" DisplayMemberPath="everythingToString">
-                        <!--
-                        <ListBoxItem HorizontalContentAlignment="Stretch" BorderBrush="LightGray" BorderThickness="1">
-                            <DockPanel>
-                                <Image DockPanel.Dock="Left" Height="80" Margin="5" Source="/Images/kebab.jpg"></Image>
-                                <Label>Jakieś ogólnikowe informacje</Label>
-                            </DockPanel>
-                        </ListBoxItem>
-                        -->
+                    <ListBox Name="ProductsListBox" Grid.Row="2" Grid.Column="1" Margin="10, 0" BorderBrush="Black" BorderThickness="3" ScrollViewer.CanContentScroll="False" HorizontalContentAlignment="Stretch">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border Margin="5" BorderThickness="1" BorderBrush="Black" CornerRadius="2">
+                                    <DockPanel>
+                                        <Image DockPanel.Dock="Left" Height="80" Margin="5" Source="Images/kebab.jpg"></Image>
+                                        <StackPanel DockPanel.Dock="Right" VerticalAlignment="Bottom" Orientation="Horizontal">
+                                            <Label Content="{Binding Path=price}"></Label>
+                                            <Label>zł</Label>
+                                        </StackPanel>
+                                        <Label DockPanel.Dock="Top" FontSize="18" FontWeight="Bold" BorderBrush="LightGray" BorderThickness="0, 0, 0, 1" Content="{Binding Path=name}"></Label>
+                                        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
+                                            <Label FontSize="14">Kategoria:</Label>
+                                            <Label FontSize="14" Content="{Binding Path=category}"></Label>
+                                        </StackPanel>
+                                    </DockPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
                     </ListBox>
                     <Button Name="AddButton" Click="AddToCart" Grid.Row="3" Grid.Column="1" Height="30" Width="100" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10" IsEnabled="False">Dodaj</Button>
                 </Grid>
