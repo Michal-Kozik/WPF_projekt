@@ -61,7 +61,7 @@
                             <DataTemplate>
                                 <Border Margin="5" BorderThickness="1" BorderBrush="Black" CornerRadius="2">
                                     <DockPanel>
-                                        <Image DockPanel.Dock="Left" Height="80" Margin="5" Source="Images/kebab.jpg"></Image>
+                                        <Image DockPanel.Dock="Left" Height="80" Margin="5" Source="{Binding Path=imagePath}"></Image>
                                         <StackPanel DockPanel.Dock="Right" VerticalAlignment="Bottom" Orientation="Horizontal">
                                             <Label Content="{Binding Path=price}"></Label>
                                             <Label>zł</Label>

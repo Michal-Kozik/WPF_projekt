@@ -11,6 +11,7 @@ namespace WPF_projekt
         // pola
         public static int freeID { get; set; }
         public int id { get; set; }
+        public string imagePath { get; set; }
 
         public string name { get; set; }
         public string description { get; set; }
