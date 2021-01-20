@@ -79,6 +79,7 @@
                                             <Label FontSize="14">Kategoria:</Label>
                                             <Label FontSize="14" Content="{Binding Path=category}"></Label>
                                         </StackPanel>
+                                        <!--<Button Click="cmdDoKoszyka" Tag="{Binding}">Dodaj</Button>-->
                                     </DockPanel>
                                 </Border>
                             </DataTemplate>

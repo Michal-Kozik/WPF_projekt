@@ -50,7 +50,7 @@ namespace WPF_projekt
             ProductsListBox.ItemsSource = products;
             CartListBox.ItemsSource = cart;
             CartListBox.SelectionChanged += ItemSelectedCart;
-            cart.CollectionChanged += CalculatePrice;
+            //cart.CollectionChanged += CalculatePrice;
             ProductsListBox.SelectionChanged += ItemSelected;
         }
 
@@ -61,10 +61,22 @@ namespace WPF_projekt
             if (ProductsListBox.SelectedIndex >= 0)
             {
                 Product product = ProductsListBox.SelectedItem as Product;
-                cart.Add(product);
+                if (product.cartAmount == 0)
+                    cart.Add(product);
+                product.cartAmount++;
+
+                // Obliczanie ceny 
+                decimal result = 0;
+                foreach (Product p in cart)
+                {
+                    result += p.price * p.cartAmount;
+                }
+                PriceLabel.Content = $"Cena: {result}";
+
                 ProductsListBox.SelectedIndex = -1;
                 AddButton.IsEnabled = false;
                 OrderButton.IsEnabled = true;
+                CartListBox.Items.Refresh();
                 MessageBox.Show($"Dodano {product.name} do koszyka.");
             }
         }
@@ -82,7 +94,7 @@ namespace WPF_projekt
         }
 
         // Podliczenie zamowienia.
-        private void CalculatePrice(object sender, NotifyCollectionChangedEventArgs e)
+        /*private void CalculatePrice(object sender, NotifyCollectionChangedEventArgs e)
         {
             decimal result = 0;
             foreach (Product p in cart)
@@ -91,7 +103,8 @@ namespace WPF_projekt
             }
             PriceLabel.Content = $"Cena: {result}";
         }
-        
+        */
+
         // Wyszukanie produktow wedlug zaznaczonych kategorii.
         private void Find(object sender, RoutedEventArgs e)
         {
@@ -177,17 +190,22 @@ namespace WPF_projekt
             if (CartListBox.SelectedIndex >= 0)
             {
                 Product product = CartListBox.SelectedItem as Product;
-                cart.Remove(product);
-                // ~ duplikacja kodu z metody CalculatePrice()
+                if (product.cartAmount == 1)
+                    cart.Remove(product);
+                product.cartAmount--;
+
+                // Obliczanie ceny.
                 decimal result = 0;
                 foreach (Product p in cart)
                 {
-                    result += p.price;
+                    result += p.price * p.cartAmount;
                 }
                 PriceLabel.Content = $"Cena: {result}";
+
                 if (cart.Count() == 0)
                     OrderButton.IsEnabled = false;
                 DeleteButton.IsEnabled = false;
+                CartListBox.Items.Refresh();
                 MessageBox.Show($"Usunięto {product.name} z koszyka.");
             }
         }
@@ -213,14 +231,21 @@ namespace WPF_projekt
                 collection.Add(p);
             }
 
-            // ~ Dodac order do odpowiedniej kolekcji, tak zeby admin mogl to zobaczyc.
             Order order = new Order(id, collection, client);
             cart.Clear();
             DeleteButton.IsEnabled = false;
             OrderButton.IsEnabled = false;
             DataBase.AddOrder(order);
+
+            // Ustawienie we wszystkich produktach zmiennej 'cartAmount' na 0.
+            foreach (Product p in products)
+            {
+                p.cartAmount = 0;
+            }
+
             MessageBox.Show($"Zamówienie zostało złożone pomyślnie.\n" +
-                $"Szczegóły:\n{order.everythingToString}");
+                $"Szczegóły:\n{order.everythingToString}\n" +
+                $"{order.details}");
         }
 
         // Wylogowanie sie.
@@ -229,6 +254,20 @@ namespace WPF_projekt
             MainWindow window = new MainWindow();
             window.Show();
             Close();
+        }
+
+        private void cmdDoKoszyka(object sender, RoutedEventArgs e)
+        {
+            Button cmd = sender as Button;
+            Product product = cmd.Tag as Product;
+            //ProductsListBox.SelectedItem = product;
+
+                
+                cart.Add(product);
+                //ProductsListBox.SelectedIndex = -1;
+                AddButton.IsEnabled = false;
+                OrderButton.IsEnabled = true;
+                MessageBox.Show($"Dodano {product.name} do koszyka.");
         }
     }
 }
