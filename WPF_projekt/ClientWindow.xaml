@@ -25,11 +25,19 @@
                         <ColumnDefinition Width="3*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="30" FontWeight="Bold" Margin="10">Strona główna</Label>
-                    <Image Grid.Row="1" Grid.RowSpan="3" Margin="50, 10" Source="/Images/kebab.jpg" Stretch="Fill"></Image>
-                    <Image Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Margin="0, 10, 50, 5" Source="/Images/kebab.jpg" Stretch="Fill"></Image>
-                    <Image Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="0, 5, 50, 5" Source="/Images/kebab.jpg" Stretch="Fill"></Image>
-                    <Image Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Margin="0, 5, 50, 10" Source="/Images/kebab.jpg" Stretch="Fill"></Image>
+                    <Label Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="30" FontWeight="Bold" Margin="10">Nowości</Label>
+                    <Border Grid.Row="1" Grid.RowSpan="3" Margin="50, 10" BorderBrush="DarkGray" BorderThickness="5" CornerRadius="5">
+                        <Image Source="Images/pizza_3.png" Stretch="Fill"></Image>
+                    </Border>
+                    <Border Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Margin="0, 10, 50, 5" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="5">
+                        <Image Source="Images/kebab_1.png" Stretch="Fill"></Image>
+                    </Border>
+                    <Border Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Margin="0, 5, 50, 5" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="5">
+                        <Image  Source="Images/kebab_2.png" Stretch="Fill"></Image>
+                    </Border>
+                    <Border Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Margin="0, 5, 50, 10" BorderBrush="DarkGray" BorderThickness="3" CornerRadius="5">
+                        <Image  Source="Images/kebab_3.png" Stretch="Fill"></Image>
+                    </Border>
                 </Grid>
             </TabItem>
             <!--Produkty-->
@@ -51,9 +59,9 @@
                         <TextBox Name="SearchTextBox" Margin="0, 10, 50, 10" VerticalContentAlignment="Center"></TextBox>
                     </DockPanel>
                     <StackPanel Grid.Row="2" Margin="30, 5" VerticalAlignment="Top">
-                        <CheckBox Checked="Find" Unchecked="Erase" Content="Kategoria 1"></CheckBox>
-                        <CheckBox Checked="Find" Unchecked="Erase" Content="Kategoria 2"></CheckBox>
-                        <CheckBox Checked="Find" Unchecked="Erase" Content="Kategoria 3"></CheckBox>
+                        <CheckBox Checked="Find" Unchecked="Erase" Content="Pizze"></CheckBox>
+                        <CheckBox Checked="Find" Unchecked="Erase" Content="Kebaby"></CheckBox>
+                        <CheckBox Checked="Find" Unchecked="Erase" Content="Sałatki"></CheckBox>
                         <CheckBox Checked="Find" Unchecked="Erase" Content="Kategoria 4"></CheckBox>
                     </StackPanel>
                     <ListBox Name="ProductsListBox" Grid.Row="2" Grid.Column="1" Margin="10, 0" BorderBrush="Black" BorderThickness="3" ScrollViewer.CanContentScroll="False" HorizontalContentAlignment="Stretch">

@@ -123,13 +123,28 @@
     <Resource Include="Images\pizza_1.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\kebab.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\pizza_2.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\pizza_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\kebab_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\kebab_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\kebab_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\salatka_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\salatka_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\salatka_3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

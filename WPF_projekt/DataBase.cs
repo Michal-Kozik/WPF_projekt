@@ -17,9 +17,15 @@ namespace WPF_projekt
         /* Konstruktor */
         static DataBase()
         {
-            products.Add(new Product { name = "Picka numero uno", category = "Kategoria 1", description = "dgshkjagfdkjhfga", price = 9.99M, amount = 9, imagePath = "Images/pizza_1.png" });
-            products.Add(new Product { name = "Picka superowa", category = "Kategoria 2", description = "dgshkjagfdkjhfga", price = 19.99M, amount = 4, imagePath = "Images/pizza_2.png" });
-            products.Add(new Product { name = "Picka doskonała", category = "Kategoria 3", description = "dgshkjagfdkjhfga", price = 29.99M, amount = 11, imagePath = "Images/pizza_3.png" });
+            products.Add(new Product { name = "Picka numero uno", category = "Pizze", description = "dgshkjagfdkjhfga", price = 9.99M, amount = 9, imagePath = "Images/pizza_1.png" });
+            products.Add(new Product { name = "Picka superowa", category = "Pizze", description = "dgshkjagfdkjhfga", price = 19.99M, amount = 4, imagePath = "Images/pizza_2.png" });
+            products.Add(new Product { name = "Picka doskonała", category = "Pizze", description = "dgshkjagfdkjhfga", price = 29.99M, amount = 11, imagePath = "Images/pizza_3.png" });
+            products.Add(new Product { name = "Kebabik numero uno", category = "Kebaby", description = "dgshkjagfdkjhfga", price = 9.99M, amount = 9, imagePath = "Images/kebab_1.png" });
+            products.Add(new Product { name = "Kebabik superowy", category = "Kebaby", description = "dgshkjagfdkjhfga", price = 19.99M, amount = 4, imagePath = "Images/kebab_2.png" });
+            products.Add(new Product { name = "Kebabik doskonały", category = "Kebaby", description = "dgshkjagfdkjhfga", price = 29.99M, amount = 11, imagePath = "Images/kebab_3.png" });
+            products.Add(new Product { name = "Sałatka numero uno", category = "Sałatki", description = "dgshkjagfdkjhfga", price = 9.99M, amount = 9, imagePath = "Images/salatka_1.png" });
+            products.Add(new Product { name = "Sałatka superowa", category = "Sałatki", description = "dgshkjagfdkjhfga", price = 19.99M, amount = 4, imagePath = "Images/salatka_2.png" });
+            products.Add(new Product { name = "Sałatka doskonała", category = "Sałatki", description = "dgshkjagfdkjhfga", price = 29.99M, amount = 11, imagePath = "Images/salatka_3.png" });
 
             clients.Add(new Client { name = "Michał", surname = "Pol", phoneNumber = "123456789", details = "Szczegółowe informacje Pola", login = "pol", password = "pol123", adminRights = false });
             clients.Add(new Client { name = "Mateusz", surname = "Borek", phoneNumber = "725602849", details = "Szczegółowe informacje Borka", login = "bor", password = "bor123", adminRights = false });
