@@ -30,8 +30,8 @@ namespace WPF_projekt
             everythingToString = $"ID: {id}\nLogin: {client.login}\nNr telefonu: {client.phoneNumber}\n";
             foreach (Product p in products)
             {
-                details += $"- {p.name}\n";
-                price += p.price;
+                details += $"- {p.name} x{p.cartAmount}\n";
+                price += p.price * p.cartAmount;
             }
             everythingToString += $"Cena: {price}";
         }

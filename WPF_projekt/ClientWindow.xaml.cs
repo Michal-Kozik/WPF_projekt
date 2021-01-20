@@ -125,6 +125,7 @@ namespace WPF_projekt
             {
                 searched.Remove(p);
             }
+            ProductsListBox.ItemsSource = searched;
             // Jezeli odhaczone zostana wszystkie kategorie.
             if (searched.Count() == 0)
             {

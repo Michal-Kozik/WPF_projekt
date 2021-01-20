@@ -17,6 +17,8 @@ namespace WPF_projekt
         public string description { get; set; }
         public string category { get; set; }
         public decimal price { get; set; }
+        // Zmienna do przechowywania ilosci w koszyku.
+        public int cartAmount { get; set; }
         public int amount { get; set; }
         public string everythingToString
         {
@@ -32,6 +34,7 @@ namespace WPF_projekt
         {
             id = freeID;
             freeID++;
+            cartAmount = 0;
         }
 
         // metody
