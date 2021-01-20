@@ -262,12 +262,23 @@ namespace WPF_projekt
             Product product = cmd.Tag as Product;
             //ProductsListBox.SelectedItem = product;
 
-                
+            if (product.cartAmount == 0)
                 cart.Add(product);
-                //ProductsListBox.SelectedIndex = -1;
-                AddButton.IsEnabled = false;
-                OrderButton.IsEnabled = true;
-                MessageBox.Show($"Dodano {product.name} do koszyka.");
+            product.cartAmount++;
+
+            // Obliczanie ceny 
+            decimal result = 0;
+            foreach (Product p in cart)
+            {
+                result += p.price * p.cartAmount;
+            }
+            PriceLabel.Content = $"Cena: {result}";
+
+            ProductsListBox.SelectedIndex = -1;
+            AddButton.IsEnabled = false;
+            OrderButton.IsEnabled = true;
+            CartListBox.Items.Refresh();
+            MessageBox.Show($"Dodano {product.name} do koszyka.");
         }
     }
 }

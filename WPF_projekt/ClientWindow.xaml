@@ -59,9 +59,9 @@
                         <TextBox Name="SearchTextBox" Margin="0, 10, 10, 10" VerticalContentAlignment="Center"></TextBox>
                     </DockPanel>
                     <StackPanel Grid.Row="2" Margin="30, 5" VerticalAlignment="Top">
-                        <CheckBox Checked="Find" Unchecked="Erase" Content="Pizze"></CheckBox>
-                        <CheckBox Checked="Find" Unchecked="Erase" Content="Kebaby"></CheckBox>
-                        <CheckBox Checked="Find" Unchecked="Erase" Content="Sałatki"></CheckBox>
+                        <CheckBox Checked="Find" Unchecked="Erase" Content="Pizza"></CheckBox>
+                        <CheckBox Checked="Find" Unchecked="Erase" Content="Kebab"></CheckBox>
+                        <CheckBox Checked="Find" Unchecked="Erase" Content="Sałatka"></CheckBox>
                         <CheckBox Checked="Find" Unchecked="Erase" Content="Kategoria 4"></CheckBox>
                     </StackPanel>
                     <ListBox Name="ProductsListBox" Grid.Row="2" Grid.Column="1" Margin="10, 0" BorderBrush="Black" BorderThickness="3" ScrollViewer.CanContentScroll="False" HorizontalContentAlignment="Stretch">
@@ -70,10 +70,14 @@
                                 <Border Margin="5" BorderThickness="1" BorderBrush="Black" CornerRadius="2">
                                     <DockPanel>
                                         <Image DockPanel.Dock="Left" Height="80" Margin="5" Source="{Binding Path=imagePath}"></Image>
-                                        <StackPanel DockPanel.Dock="Right" VerticalAlignment="Bottom" Orientation="Horizontal">
-                                            <Label Content="{Binding Path=price}"></Label>
-                                            <Label>zł</Label>
-                                        </StackPanel>
+                                        <DockPanel DockPanel.Dock="Right">
+                                            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Right">
+                                                <Label Content="{Binding Path=price}"></Label>
+                                                <Label>zł</Label>
+                                            </StackPanel>
+                                            <Button DockPanel.Dock="Bottom" Click="cmdDoKoszyka" Content="Dodaj" Margin="5" Width="100" Tag="{Binding}"></Button>
+                                            <Grid/>
+                                        </DockPanel>
                                         <Label DockPanel.Dock="Top" FontSize="18" FontWeight="Bold" BorderBrush="LightGray" BorderThickness="0, 0, 0, 1" Content="{Binding Path=name}"></Label>
                                         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
                                             <Label FontSize="14">Kategoria:</Label>
