@@ -110,7 +110,7 @@
                     </Grid.ColumnDefinitions>
                     <Label Grid.ColumnSpan="2" FontSize="30" HorizontalAlignment="Center" FontWeight="Bold" Margin="10">Podgląd zamówień</Label>
                     <DockPanel Grid.Row="1" Grid.ColumnSpan="2">
-                        <Button Name="SearchOrderButton" Width="100" Margin="50, 10, 0, 10" Padding="3">Szukaj</Button>
+                        <Button Name="SearchOrderButton" Click="FindOrder" Width="100" Margin="50, 10, 0, 10" Padding="3">Szukaj</Button>
                         <TextBox Name="SearchOrderTextBox" Margin="0, 10, 50, 10" VerticalContentAlignment="Center"></TextBox>
                     </DockPanel>
                     <ListBox Name="OrdersListBox" Grid.Row="2" BorderBrush="Black" BorderThickness="3" Margin="5" ScrollViewer.CanContentScroll="False" HorizontalContentAlignment="Stretch">

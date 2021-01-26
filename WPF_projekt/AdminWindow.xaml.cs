@@ -24,8 +24,12 @@ namespace WPF_projekt
         private ObservableCollection<Client> clients;
         private ObservableCollection<Order> orders;
 
+        // Kolekcja do wyswietlania towarow wymagajacych uzupelnienia.
         private ObservableCollection<Product> needSupply = new ObservableCollection<Product>();
+        // Kolekcja do wyswietlania wyszukiwanych klientow.
         private ObservableCollection<Client> searchedClients = new ObservableCollection<Client>();
+        // Kolekcja do wyswietlania wyszukiwanych zamowien.
+        private ObservableCollection<Order> searchedOrders = new ObservableCollection<Order>();
 
         private Client client;
 
@@ -80,6 +84,30 @@ namespace WPF_projekt
                     }
                 }
                 ClientsListBox.ItemsSource = searchedClients;
+            }
+        }
+
+        // Wyszukanie zamowienia wg ID, loginu zamawiajacego lub nr telefonu zamawiajacego.
+        private void FindOrder(object sender, RoutedEventArgs e)
+        {
+            string searched = SearchOrderTextBox.Text.ToUpper();
+            // Jezeli wyszukano wg pustego tekstu to zwrocona zostanie cala lista zamowien.
+            if (searched == "")
+            {
+                OrdersListBox.ItemsSource = orders;
+            }
+            // W przeciwnym wypadku zwrocone zostana zamowienia, ktorych ID, login lub telefon zamawiajacego bedzie pasowal do wyszukiwania.
+            else
+            {
+                searchedOrders.Clear();
+                foreach (Order o in orders)
+                {
+                    if (o.id.ToUpper().Contains(searched) || o.client.login.ToUpper().Contains(searched) || o.client.phoneNumber.Contains(searched))
+                    {
+                        searchedOrders.Add(o);
+                    }
+                }
+                OrdersListBox.ItemsSource = searchedOrders;
             }
         }
 
