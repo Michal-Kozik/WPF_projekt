@@ -50,8 +50,13 @@ namespace WPF_projekt
             ProductsListBox.ItemsSource = products;
             CartListBox.ItemsSource = cart;
             CartListBox.SelectionChanged += ItemSelectedCart;
-            //cart.CollectionChanged += CalculatePrice;
             ProductsListBox.SelectionChanged += ItemSelected;
+
+            // Uzupelnienie okna 'Profil'.
+            LoginLabel.Content = client.login;
+            NameLabel.Content = client.Name;
+            SurnameLabel.Content = client.Surname;
+            PhoneLabel.Content = client.PhoneNumber;
         }
 
         // Dodanie produktu do koszyka.

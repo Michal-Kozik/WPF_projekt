@@ -61,6 +61,12 @@ namespace WPF_projekt
             ClientsListBox.ItemsSource = clients;
             OrdersListBox.ItemsSource = orders;
             MagazineListBox.SelectionChanged += ItemSelected;
+
+            // Uzupelnienie okna 'Profil'.
+            LoginLabel.Content = client.login;
+            NameLabel.Content = client.Name;
+            SurnameLabel.Content = client.Surname;
+            PhoneLabel.Content = client.PhoneNumber;
         }
 
         // Wyszukiwanie klientow wg loginu lub nr telefonu.

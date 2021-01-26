@@ -171,18 +171,32 @@
                         <RowDefinition Height="auto"/>
                         <RowDefinition />
                     </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <Label Grid.ColumnSpan="3" FontSize="30" HorizontalAlignment="Center" FontWeight="Bold" Margin="10">Profil</Label>
-                    <StackPanel Grid.Row="1" Grid.Column="1">
-                        <Label>Nazwa użytkownika: [nazwa]</Label>
-                        <Label>Poczta: [adres]</Label>
-                        <Label>Hasło: [ha***]</Label>
-                        <Label>Nwm, hasło jest chyba bez sensu</Label>
-                        <Label>Nie wiem co tu dać</Label>
+                    <Label FontSize="30" HorizontalAlignment="Center" FontWeight="Bold" Margin="10">Profil</Label>
+                    <StackPanel Grid.Row="1" Orientation="Vertical" Margin="50">
+                        <Border BorderBrush="LightGray" BorderThickness="0, 0, 0, 1">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Label>Login:</Label>
+                                <Label Name="LoginLabel">[login]</Label>
+                            </StackPanel>
+                        </Border>
+                        <Border BorderBrush="LightGray" BorderThickness="0, 0, 0, 1">
+                            <StackPanel Orientation="Horizontal" Margin="0, 5, 0, 0" HorizontalAlignment="Center">
+                                <Label>Imię:</Label>
+                                <Label Name="NameLabel">[imie]</Label>
+                            </StackPanel>
+                        </Border>
+                        <Border BorderBrush="LightGray" BorderThickness="0, 0, 0, 1">
+                            <StackPanel Orientation="Horizontal" Margin="0, 5, 0, 0" HorizontalAlignment="Center">
+                                <Label>Nazwisko:</Label>
+                                <Label Name="SurnameLabel">[nazwisko]</Label>
+                            </StackPanel>
+                        </Border>
+                        <Border BorderBrush="LightGray" BorderThickness="0, 0, 0, 1">
+                            <StackPanel Orientation="Horizontal" Margin="0, 5, 0, 0" HorizontalAlignment="Center">
+                                <Label>Nr telefonu:</Label>
+                                <Label Name="PhoneLabel">[nr telefonu]</Label>
+                            </StackPanel>
+                        </Border>
                         <Button Name="LogoutButton" Click="LogOut" Height="30" Width="100" Margin="0,30">Wyloguj</Button>
                     </StackPanel>
                 </Grid>
