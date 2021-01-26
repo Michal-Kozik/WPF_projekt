@@ -79,7 +79,7 @@ namespace WPF_projekt
                 PriceLabel.Content = $"Cena: {result}";
 
                 ProductsListBox.SelectedIndex = -1;
-                AddButton.IsEnabled = false;
+                //AddButton.IsEnabled = false;
                 OrderButton.IsEnabled = true;
                 CartListBox.Items.Refresh();
                 MessageBox.Show($"Dodano {product.name} do koszyka.");
@@ -89,7 +89,7 @@ namespace WPF_projekt
         // Zaznaczenie przedmiotu na liscie produktow.
         private void ItemSelected(object sender, RoutedEventArgs e)
         {
-            AddButton.IsEnabled = true;
+            //AddButton.IsEnabled = true;
         }
 
         // Zaznaczenie przedmiotu w koszyku
@@ -123,7 +123,7 @@ namespace WPF_projekt
                 }
             }
             ProductsListBox.ItemsSource = searched;
-            AddButton.IsEnabled = false;
+            //AddButton.IsEnabled = false;
         }
 
         // Wyszukiwanie produktow w przypadku odhaczenia kategorii.
@@ -149,7 +149,7 @@ namespace WPF_projekt
             {
                 ProductsListBox.ItemsSource = products;
             }
-            AddButton.IsEnabled = false;
+            //AddButton.IsEnabled = false;
         }
 
         // Wyszukiwanie produktow na podstawie tekstu.
@@ -184,7 +184,7 @@ namespace WPF_projekt
                 }
                 ProductsListBox.ItemsSource = result;
             }
-            AddButton.IsEnabled = false;
+            //AddButton.IsEnabled = false;
             SearchTextBox.Text = "";
         }
 
@@ -261,7 +261,7 @@ namespace WPF_projekt
             Close();
         }
 
-        private void cmdDoKoszyka(object sender, RoutedEventArgs e)
+        private void PutIntoCart(object sender, RoutedEventArgs e)
         {
             Button cmd = sender as Button;
             Product product = cmd.Tag as Product;
@@ -280,7 +280,7 @@ namespace WPF_projekt
             PriceLabel.Content = $"Cena: {result}";
 
             ProductsListBox.SelectedIndex = -1;
-            AddButton.IsEnabled = false;
+            //AddButton.IsEnabled = false;
             OrderButton.IsEnabled = true;
             CartListBox.Items.Refresh();
             MessageBox.Show($"Dodano {product.name} do koszyka.");

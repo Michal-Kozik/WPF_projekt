@@ -47,7 +47,6 @@
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                         <RowDefinition />
-                        <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
@@ -64,7 +63,7 @@
                         <CheckBox Checked="Find" Unchecked="Erase" Content="Sałatka"></CheckBox>
                         <CheckBox Checked="Find" Unchecked="Erase" Content="Kategoria 4"></CheckBox>
                     </StackPanel>
-                    <ListBox Name="ProductsListBox" Grid.Row="2" Grid.Column="1" Margin="10, 0" BorderBrush="Black" BorderThickness="3" ScrollViewer.CanContentScroll="False" HorizontalContentAlignment="Stretch">
+                    <ListBox Name="ProductsListBox" Grid.Row="2" Grid.Column="1" Margin="10, 0, 10, 10" BorderBrush="Black" BorderThickness="3" ScrollViewer.CanContentScroll="False" HorizontalContentAlignment="Stretch">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Border Margin="5" BorderThickness="1" BorderBrush="Black" CornerRadius="2">
@@ -75,7 +74,7 @@
                                                 <Label Content="{Binding Path=price}"></Label>
                                                 <Label>zł</Label>
                                             </StackPanel>
-                                            <Button DockPanel.Dock="Bottom" Click="cmdDoKoszyka" Content="Dodaj" Margin="5" Width="100" Tag="{Binding}"></Button>
+                                            <Button DockPanel.Dock="Bottom" Click="PutIntoCart" Content="Dodaj" Margin="5" Width="100" Tag="{Binding}"></Button>
                                             <Grid/>
                                         </DockPanel>
                                         <Label DockPanel.Dock="Top" FontSize="18" FontWeight="Bold" BorderBrush="LightGray" BorderThickness="0, 0, 0, 1" Content="{Binding Path=name}"></Label>
@@ -89,7 +88,6 @@
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
-                    <Button Name="AddButton" Click="AddToCart" Grid.Row="3" Grid.Column="1" Height="30" Width="100" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10" IsEnabled="False">Dodaj</Button>
                 </Grid>
             </TabItem>
             <TabItem Header="Koszyk">
