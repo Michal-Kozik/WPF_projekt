@@ -149,7 +149,7 @@ namespace WPF_projekt
         {
             if (e.Action == ValidationErrorEventAction.Added)
             {
-                MessageBox.Show(e.Error.ErrorContent.ToString());
+                MessageBox.Show(e.Error.ErrorContent.ToString(), "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

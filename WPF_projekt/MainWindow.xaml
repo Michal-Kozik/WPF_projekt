@@ -23,7 +23,10 @@
             <PasswordBox Name="PassBox" Width="250" VerticalContentAlignment="Center"></PasswordBox>
         </StackPanel>
         <StackPanel Grid.Row="3">
-            <Button Click="Log_in" Grid.Row="3" Width="125" Padding="10, 5" Margin="10">Zaloguj</Button>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Click="Log_in" Width="125" Padding="10, 5" Margin="10">Zaloguj</Button>
+                <Button Click="Register" Width="125" Padding="10, 5" Margin="10">Rejestracja</Button>
+            </StackPanel>
             <Label Name="ValidationLabel" HorizontalAlignment="Center" FontStyle="Italic" Foreground="Red"></Label>
         </StackPanel>
     </Grid>

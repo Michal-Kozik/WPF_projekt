@@ -57,7 +57,24 @@ namespace WPF_projekt
                     ValidationLabel.Content = "Podany login i hasło nie pasują do siebie!";
                 }
             else
-                ValidationLabel.Content = "Podane pola nie mogą być puste!";
+                if (LoginTextBox.Text == "" || PassBox.Password == "")
+                    ValidationLabel.Content = "Podane pola nie mogą być puste!";
+                else
+                    ValidationLabel.Content = "Podany login i hasło nie pasują do siebie";
+        }
+
+        /* Rejestracja */
+        private void Register(object sender, RoutedEventArgs e)
+        {
+            RegisterDialog dialog = new RegisterDialog();
+            if (dialog.ShowDialog() == true)
+            {
+
+            }
+            else
+            {
+
+            }
         }
     }
 }
