@@ -33,12 +33,12 @@ namespace WPF_projekt
         /* Logowanie */
         private void Log_in(object sender, RoutedEventArgs e)
         {
-            // sprawdzenie czy taki login wgl istnieje
+            // Sprawdzenie czy taki login wgl istnieje.
             if (clientsMap.ContainsKey(LoginTextBox.Text))
-                // porownanie hasla wpisanego oraz hasla pod danym loginem
+                // Porownanie hasla wpisanego oraz hasla pod danym loginem.
                 if (PassBox.Password == clientsMap[LoginTextBox.Text].password)
                 {
-                    // sprawdzenie czy uzytkownik ma prawa administracyjne
+                    // Sprawdzenie czy uzytkownik ma prawa administracyjne.
                     if (clientsMap[LoginTextBox.Text].adminRights == true)
                     {
                         AdminWindow window = new AdminWindow(clientsMap[LoginTextBox.Text]);
