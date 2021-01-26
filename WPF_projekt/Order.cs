@@ -24,7 +24,7 @@ namespace WPF_projekt
             this.id = id;
             this.products = products;
             this.client = client;
-            details = "Szczegóły zamówienia:\n";
+            details = "";
             //details = $"Imię kupującego: {client.name}, Nazwisko kupującego: {client.surname}";
             price = 0;
             everythingToString = $"ID: {id}\nLogin: {client.login}\nNr telefonu: {client.phoneNumber}\n";
