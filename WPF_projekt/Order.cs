@@ -27,7 +27,7 @@ namespace WPF_projekt
             details = "";
             //details = $"Imię kupującego: {client.name}, Nazwisko kupującego: {client.surname}";
             price = 0;
-            everythingToString = $"ID: {id}\nLogin: {client.login}\nNr telefonu: {client.phoneNumber}\n";
+            everythingToString = $"ID: {id}\nLogin: {client.login}\nNr telefonu: {client.PhoneNumber}\n";
             foreach (Product p in products)
             {
                 details += $"- {p.name} x{p.cartAmount}\n";

@@ -78,7 +78,7 @@ namespace WPF_projekt
                 searchedClients.Clear();
                 foreach (Client c in clients)
                 {
-                    if (c.login.ToUpper().Contains(searched) || c.phoneNumber.Contains(searched))
+                    if (c.login.ToUpper().Contains(searched) || c.PhoneNumber.Contains(searched))
                     {
                         searchedClients.Add(c);
                     }
@@ -102,7 +102,7 @@ namespace WPF_projekt
                 searchedOrders.Clear();
                 foreach (Order o in orders)
                 {
-                    if (o.id.ToUpper().Contains(searched) || o.client.login.ToUpper().Contains(searched) || o.client.phoneNumber.Contains(searched))
+                    if (o.id.ToUpper().Contains(searched) || o.client.login.ToUpper().Contains(searched) || o.client.PhoneNumber.Contains(searched))
                     {
                         searchedOrders.Add(o);
                     }
@@ -135,6 +135,15 @@ namespace WPF_projekt
                 needSupply.Remove(product);
                 SupplyButton.IsEnabled = false;
                 MessageBox.Show($"Uzupełniono produkt - {product.name}");
+            }
+        }
+
+        // Walidacja.
+        private void ValidationInfo(object sender, ValidationErrorEventArgs e)
+        {
+            if (e.Action == ValidationErrorEventAction.Added)
+            {
+                MessageBox.Show(e.Error.ErrorContent.ToString());
             }
         }
     }

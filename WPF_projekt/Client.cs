@@ -9,9 +9,51 @@ namespace WPF_projekt
     public class Client
     {
         // pola
-        public string name { get; set; }
-        public string surname { get; set; }
-        public string phoneNumber { get; set; }
+        //public string name { get; set; }
+        private string name;
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                if (value.Length > 20)
+                {
+                    throw new ArgumentException("Imię musi być krótsze niż 20 znaków!");
+                }
+                name = value;
+            }
+        }
+        //public string surname { get; set; }
+        private string surname;
+        public string Surname
+        {
+            get { return surname; }
+            set
+            {
+                if (value.Length > 25)
+                {
+                    throw new ArgumentException("Nazwisko musi być krótsze niż 25 znaków!");
+                }
+                surname = value;
+            }
+        }
+        //public string phoneNumber { get; set; }
+        private string phoneNumber;
+        public string PhoneNumber
+        {
+            get { return phoneNumber; }
+            set
+            {
+                if (value.Length != 9)
+                    throw new ArgumentException("Nr telefonu musi mieć 9 cyfr!");
+                foreach (char c in value)
+                {
+                    if (c < '0' || c > '9')
+                        throw new ArgumentException("Nr telefonu nie może zawierać znaków innych niż cyfry!");
+                }
+                phoneNumber = value;
+            }
+        }
         public string details { get; set; }
         public string everythingToString
         {

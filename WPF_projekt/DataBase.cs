@@ -27,10 +27,10 @@ namespace WPF_projekt
             products.Add(new Product { name = "Sałatka superowa", category = "Sałatka", description = "dgshkjagfdkjhfga", price = 19.99M, amount = 4, imagePath = "Images/salatka_2.png" });
             products.Add(new Product { name = "Sałatka doskonała", category = "Sałatka", description = "dgshkjagfdkjhfga", price = 29.99M, amount = 11, imagePath = "Images/salatka_3.png" });
 
-            clients.Add(new Client { name = "Michał", surname = "Pol", phoneNumber = "123456789", details = "Szczegółowe informacje Pola", login = "pol", password = "pol123", adminRights = false });
-            clients.Add(new Client { name = "Mateusz", surname = "Borek", phoneNumber = "725602849", details = "Szczegółowe informacje Borka", login = "bor", password = "bor123", adminRights = false });
-            clients.Add(new Client { name = "Tomasz", surname = "Smokowski", phoneNumber = "827028124", details = "Szczegółowe informacje Smokowskiego", login = "smoku", password = "smoku123", adminRights = false });
-            clients.Add(new Client { name = "Jacek", surname = "Nowak", phoneNumber = "123634745", details = "Szczegółowe dane Nowaka", login = "admin", password = "admin123", adminRights = true });
+            clients.Add(new Client { Name = "Michał", Surname = "Pol", PhoneNumber = "123456789", details = "Szczegółowe informacje Pola", login = "pol", password = "pol123", adminRights = false });
+            clients.Add(new Client { Name = "Mateusz", Surname = "Borek", PhoneNumber = "725602849", details = "Szczegółowe informacje Borka", login = "bor", password = "bor123", adminRights = false });
+            clients.Add(new Client { Name = "Tomasz", Surname = "Smokowski", PhoneNumber = "827028124", details = "Szczegółowe informacje Smokowskiego", login = "smoku", password = "smoku123", adminRights = false });
+            clients.Add(new Client { Name = "Jacek", Surname = "Nowak", PhoneNumber = "123634745", details = "Szczegółowe dane Nowaka", login = "admin", password = "admin123", adminRights = true });
 
             clientsMap.Add(clients.ElementAt(0).login, clients.ElementAt(0));
             clientsMap.Add(clients.ElementAt(1).login, clients.ElementAt(1));
