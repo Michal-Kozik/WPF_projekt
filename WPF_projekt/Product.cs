@@ -8,11 +8,10 @@ namespace WPF_projekt
 {
     public class Product
     {
-        // pola
+        // Pola.
         public static int freeID { get; set; }
         public int id { get; set; }
         public string imagePath { get; set; }
-
         public string name { get; set; }
         public string description { get; set; }
         public string category { get; set; }
@@ -25,7 +24,7 @@ namespace WPF_projekt
             get { return $"Nazwa: {name}\nKategoria: {category}\nOpis: {description}\nCena: {price}\nIlość: {amount}"; }
         }
 
-        // konstruktory
+        // Konstruktory.
         static Product()
         {
             freeID = 0;
@@ -36,7 +35,5 @@ namespace WPF_projekt
             freeID++;
             cartAmount = 0;
         }
-
-        // metody
     }
 }

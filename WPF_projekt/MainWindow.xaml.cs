@@ -30,7 +30,7 @@ namespace WPF_projekt
             clientsMap = DataBase.GetClientsMap();
         }
 
-        /* Logowanie */
+        // Logowanie.
         private void Log_in(object sender, RoutedEventArgs e)
         {
             // Sprawdzenie czy taki login wgl istnieje.
@@ -63,7 +63,7 @@ namespace WPF_projekt
                     ValidationLabel.Content = "Podany login i hasło nie pasują do siebie";
         }
 
-        /* Rejestracja */
+        // Rejestracja.
         private void Register(object sender, RoutedEventArgs e)
         {
             RegisterDialog dialog = new RegisterDialog();

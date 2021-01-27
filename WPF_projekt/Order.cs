@@ -9,8 +9,7 @@ namespace WPF_projekt
 {
     public class Order
     {
-        // pola
-        //public int id { get; set; }
+        // Pola.
         public string id { get; set; }
         public Client client { get; set; }
         public Collection<Product> products { get; set; }
@@ -18,7 +17,7 @@ namespace WPF_projekt
         public string details { get; set; }
         public string everythingToString { get; }
 
-        // konstruktory
+        // Konstruktory.
         public Order(string id, Collection<Product> products, Client client)
         {
             this.id = id;
@@ -35,7 +34,5 @@ namespace WPF_projekt
             everythingToString += $"Cena: {price}";
             details += $"\nCena: {price} zł";
         }
-
-        // metody
     }
 }

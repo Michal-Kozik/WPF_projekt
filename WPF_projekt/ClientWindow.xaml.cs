@@ -21,11 +21,8 @@ namespace WPF_projekt
     public partial class ClientWindow : Window
     {
         private Client client;
-
-
         private ObservableCollection<Product> products;
-        private ObservableCollection<Client> clients;
-        private ObservableCollection<Order> orders;
+
         // Produkty w koszyku.
         private ObservableCollection<Product> cart = new ObservableCollection<Product>();
         // Produkty szukane wedlug kategorii.
@@ -37,8 +34,6 @@ namespace WPF_projekt
             InitializeComponent();
 
             products = DataBase.GetProducts();
-            clients = DataBase.GetClients();
-            orders = DataBase.GetOrders();
 
             this.client = client;
             ProfileTabItem.Header = client.login;
@@ -50,7 +45,6 @@ namespace WPF_projekt
             ProductsListBox.ItemsSource = products;
             CartListBox.ItemsSource = cart;
             CartListBox.SelectionChanged += ItemSelectedCart;
-            ProductsListBox.SelectionChanged += ItemSelected;
 
             // Uzupelnienie okna 'Profil'.
             LoginLabel.Content = client.login;
@@ -69,58 +63,11 @@ namespace WPF_projekt
             NewestItem4.Source = new BitmapImage(fileUri);
         }
 
-        // Dodanie produktu do koszyka - do wywalanie.
-        private void AddToCart(object sender, RoutedEventArgs e)
-        {
-            // ~ jeszcze nie jestem pewien czy ten if jest potrzebny
-            if (ProductsListBox.SelectedIndex >= 0)
-            {
-            Product product = ProductsListBox.SelectedItem as Product;
-            //Product product = sender as Product;
-                if (product.cartAmount == 0)
-                    cart.Add(product);
-                product.cartAmount++;
-
-                // Obliczanie ceny 
-                decimal result = 0;
-                foreach (Product p in cart)
-                {
-                    result += p.price * p.cartAmount;
-                }
-                PriceLabel.Content = $"Cena: {result} zł";
-
-                ProductsListBox.SelectedIndex = -1;
-                //AddButton.IsEnabled = false;
-                OrderButton.IsEnabled = true;
-                CartListBox.Items.Refresh();
-
-                MessageBox.Show($"Dodano {product.name} do koszyka.");
-            }
-        }
-
-        // Zaznaczenie przedmiotu na liscie produktow.
-        private void ItemSelected(object sender, RoutedEventArgs e)
-        {
-            //AddButton.IsEnabled = true;
-        }
-
-        // Zaznaczenie przedmiotu w koszyku
+        // Zaznaczenie przedmiotu w koszyku.
         private void ItemSelectedCart(object sender, RoutedEventArgs e)
         {
             DeleteButton.IsEnabled = true;
         }
-
-        // Podliczenie zamowienia.
-        /*private void CalculatePrice(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            decimal result = 0;
-            foreach (Product p in cart)
-            {
-                result += p.price;
-            }
-            PriceLabel.Content = $"Cena: {result}";
-        }
-        */
 
         // Wyszukanie produktow wedlug zaznaczonych kategorii.
         private void Find(object sender, RoutedEventArgs e)
@@ -135,7 +82,6 @@ namespace WPF_projekt
                 }
             }
             ProductsListBox.ItemsSource = searched;
-            //AddButton.IsEnabled = false;
         }
 
         // Wyszukiwanie produktow w przypadku odhaczenia kategorii.
@@ -161,7 +107,6 @@ namespace WPF_projekt
             {
                 ProductsListBox.ItemsSource = products;
             }
-            //AddButton.IsEnabled = false;
         }
 
         // Wyszukiwanie produktow na podstawie tekstu.
@@ -196,14 +141,12 @@ namespace WPF_projekt
                 }
                 ProductsListBox.ItemsSource = result;
             }
-            //AddButton.IsEnabled = false;
             SearchTextBox.Text = "";
         }
 
         // Usuniecie przedmiotu z koszyka.
         private void DeleteFromCart(object sender, RoutedEventArgs e)
         {
-            // ~ jeszcze nie jestem pewien czy ten if jest potrzebny
             if (CartListBox.SelectedIndex >= 0)
             {
                 Product product = CartListBox.SelectedItem as Product;
@@ -262,7 +205,7 @@ namespace WPF_projekt
 
             MessageBox.Show($"Zamówienie zostało złożone pomyślnie.\n" +
                 $"Szczegóły:\n{order.everythingToString}\n" +
-                $"{order.details}");
+                $"{order.details}", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         // Wylogowanie sie.
@@ -273,17 +216,17 @@ namespace WPF_projekt
             Close();
         }
 
+        // Dodanie produktu do koszyka.
         private void PutIntoCart(object sender, RoutedEventArgs e)
         {
             Button cmd = sender as Button;
             Product product = cmd.Tag as Product;
-            //ProductsListBox.SelectedItem = product;
 
             if (product.cartAmount == 0)
                 cart.Add(product);
             product.cartAmount++;
 
-            // Obliczanie ceny 
+            // Obliczanie ceny. 
             decimal result = 0;
             foreach (Product p in cart)
             {
@@ -292,7 +235,6 @@ namespace WPF_projekt
             PriceLabel.Content = $"Cena: {result} zł";
 
             ProductsListBox.SelectedIndex = -1;
-            //AddButton.IsEnabled = false;
             OrderButton.IsEnabled = true;
             CartListBox.Items.Refresh();
             MessageBox.Show($"Dodano {product.name} do koszyka.", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);

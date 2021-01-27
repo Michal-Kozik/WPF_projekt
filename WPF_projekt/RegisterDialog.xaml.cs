@@ -52,7 +52,7 @@ namespace WPF_projekt
             }
         }
         
-        // Walidacja loginu
+        // Walidacja loginu.
         private void ValidateLogin(object sender, RoutedEventArgs e)
         {
             TextBox item = sender as TextBox;

@@ -8,8 +8,7 @@ namespace WPF_projekt
 {
     public class Client
     {
-        // pola
-        //public string name { get; set; }
+        // Pola.
         private string name;
         public string Name
         {
@@ -23,7 +22,7 @@ namespace WPF_projekt
                 name = value;
             }
         }
-        //public string surname { get; set; }
+
         private string surname;
         public string Surname
         {
@@ -37,7 +36,7 @@ namespace WPF_projekt
                 surname = value;
             }
         }
-        //public string phoneNumber { get; set; }
+
         private string phoneNumber;
         public string PhoneNumber
         {
@@ -54,13 +53,12 @@ namespace WPF_projekt
                 phoneNumber = value;
             }
         }
+
         public string details { get; set; }
         public string everythingToString
         {
-            //get { return $"Imię: {name}\nNazwisko: {surname}\nNr telefonu: {phoneNumber}"; }
             get { return $"Login: {login}\nNr telefonu: {phoneNumber}"; }
         }
-
         public string login { get; set; }
         public string password { get; set; }
         public bool adminRights { get; set; }
@@ -76,7 +74,7 @@ namespace WPF_projekt
             adminRights = false;
         }
 
-        // metody
+        // Metody.
         public void MakeAdmin()
         {
             adminRights = true;
