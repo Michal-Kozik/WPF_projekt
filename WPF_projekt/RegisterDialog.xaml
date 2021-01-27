@@ -195,6 +195,23 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+
+        <!--PasswordBox-->
+        <Style TargetType="{x:Type PasswordBox}">
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="True">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                <GradientStop Color="#E9E9E9" Offset="0.0" />
+                                <GradientStop Color="#FFFFFF" Offset="0.6" />
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="BorderBrush" Value="Black"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </Window.Resources>
     
     <!--Tlo-->
@@ -229,7 +246,7 @@
         <Label Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Bottom">Hasło:</Label>
         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Vertical">
             <Label Name="ValidatePasswordLabel" Margin="10, 0, 100, 0" FontStyle="Italic" Foreground="Red"></Label>
-            <TextBox Name="PasswordTextBox" LostFocus="ValidatePassword" Margin="10, 10, 100, 0"></TextBox>
+            <PasswordBox Name="PasswordTextBox" LostFocus="ValidatePassword" Margin="10, 10, 100, 0"></PasswordBox>
         </StackPanel>
         <Label Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Bottom">Imię:</Label>
         <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Vertical">

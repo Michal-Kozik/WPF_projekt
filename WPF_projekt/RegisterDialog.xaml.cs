@@ -30,88 +30,9 @@ namespace WPF_projekt
             InitializeComponent();
         }
 
-        
+        // Tworzenie konta.
         private void CreateAccount(object sender, RoutedEventArgs e)
         {
-            /*
-            bool accepted = true;
-
-            // Walidacja loginu.
-            if (LoginTextBox.Text == "")
-            {
-                ValidateLoginLabel.Content = "Login nie może być pusty.";
-                accepted = false;
-            }
-            else
-            {
-                if (LoginTextBox.Text.Length > 20)
-                {
-                    ValidateLoginLabel.Content = "Login nie może mieć więcej niż 20 znaków.";
-                    accepted = false;
-                } 
-            }
-            
-            // Walidacja hasla.
-            if (PasswordTextBox.Text == "")
-            {
-                ValidatePasswordLabel.Content = "Hasło nie może być puste.";
-                accepted = false;
-            }
-
-            // Walidacja imienia.
-            if (NameTextBox.Text == "")
-            {
-                ValidateNameLabel.Content = "Imię nie może być puste.";
-                accepted = false;
-            }
-            else
-            {
-                if (NameTextBox.Text.Length > 20)
-                {
-                    ValidateNameLabel.Content = "Imię nie może mieć więcej niż 20 znaków.";
-                    accepted = false;
-                }
-            }
-
-            // Walidacja nazwiska.
-            if (SurnameTextBox.Text == "")
-            {
-                ValidateSurnameLabel.Content = "Nazwisko nie może być puste.";
-                accepted = false;
-            }
-            else
-            {
-                if (SurnameTextBox.Text.Length > 25)
-                {
-                    ValidateSurnameLabel.Content = "Nazwisko nie może mieć więcej niż 25 znaków.";
-                    accepted = false;
-                }
-            }
-
-            // Walidacja numeru telefonu.
-            if (PhoneNumberTextBox.Text == "")
-            {
-                ValidatePhoneNumberLabel.Content = "Nr telefonu nie może być pusty.";
-                accepted = false;
-            }
-            else
-            {
-                foreach (char c in PhoneNumberTextBox.Text)
-                {
-                    if (c < '0' || c > '9')
-                    {
-                        ValidatePhoneNumberLabel.Content = "Nr telefonu musi zawierać same cyfry.";
-                        accepted = false;
-                    }
-                }
-                if (PhoneNumberTextBox.Text.Length != 9)
-                {
-                    ValidatePhoneNumberLabel.Content = "Nr telefony musi składać się z 9 cyfr.";
-                    accepted = false;
-                } 
-            }
-            */
-
             if (loginPassed + passwordPassed + namePassed + surnamePassed + phonePassed != 5)
             {
                 MessageBox.Show("Nie wszystkie pola wypełniono poprawnie.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -119,7 +40,7 @@ namespace WPF_projekt
             else
             {
                 string login = LoginTextBox.Text;
-                string password = PasswordTextBox.Text;
+                string password = PasswordTextBox.Password;
                 string name = NameTextBox.Text;
                 string surname = SurnameTextBox.Text;
                 string phoneNumber = PhoneNumberTextBox.Text;
@@ -131,7 +52,6 @@ namespace WPF_projekt
             }
         }
         
-
         // Walidacja loginu
         private void ValidateLogin(object sender, RoutedEventArgs e)
         {
@@ -159,12 +79,21 @@ namespace WPF_projekt
         // Walidacja hasla.
         private void ValidatePassword(object sender, RoutedEventArgs e)
         {
-            TextBox item = sender as TextBox;
-            if (item.Text == "")
+            PasswordBox item = sender as PasswordBox;
+            if (item.Password == "")
             {
                 ValidatePasswordLabel.Content = "Hasło nie może być puste.";
                 passwordPassed = 0;
                 return;
+            }
+            else
+            {
+                if (item.Password.Length <= 5)
+                {
+                    ValidatePasswordLabel.Content = "Hasło musi mieć więcej niż 5 znaków.";
+                    passwordPassed = 0;
+                    return;
+                }
             }
 
             ValidatePasswordLabel.Content = null;
