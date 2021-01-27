@@ -21,7 +21,7 @@
             </Setter>
         </Style>
 
-        <!--Cien rzucany przec napis na przycisku-->
+        <!--Cien rzucany przez napis na przycisku-->
         <Style x:Key="ShadowStyle">
             <Setter Property="Control.Foreground" Value="Black" />
         </Style>
