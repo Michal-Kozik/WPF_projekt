@@ -57,6 +57,16 @@ namespace WPF_projekt
             NameLabel.Content = client.Name;
             SurnameLabel.Content = client.Surname;
             PhoneLabel.Content = client.PhoneNumber;
+
+            // Zaladowanie najnowszych produktow.
+            Uri fileUri = new Uri(products.ElementAt(products.Count() - 1).imagePath, UriKind.Relative);
+            NewestItem1.Source = new BitmapImage(fileUri);
+            fileUri = new Uri(products.ElementAt(products.Count() - 2).imagePath, UriKind.Relative);
+            NewestItem2.Source = new BitmapImage(fileUri);
+            fileUri = new Uri(products.ElementAt(products.Count() - 3).imagePath, UriKind.Relative);
+            NewestItem3.Source = new BitmapImage(fileUri);
+            fileUri = new Uri(products.ElementAt(products.Count() - 4).imagePath, UriKind.Relative);
+            NewestItem4.Source = new BitmapImage(fileUri);
         }
 
         // Dodanie produktu do koszyka - do wywalanie.
