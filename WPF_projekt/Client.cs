@@ -65,6 +65,17 @@ namespace WPF_projekt
         public string password { get; set; }
         public bool adminRights { get; set; }
 
+        /* Konstruktor */
+        public Client(string login, string password, string name, string surname, string phoneNumber)
+        {
+            this.login = login;
+            this.password = password;
+            this.name = name;
+            this.surname = surname;
+            this.phoneNumber = phoneNumber;
+            adminRights = false;
+        }
+
         // metody
     }
 }
