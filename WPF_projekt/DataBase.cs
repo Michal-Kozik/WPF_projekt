@@ -38,9 +38,20 @@ namespace WPF_projekt
             clientsMap.Add(clients.ElementAt(2).login, clients.ElementAt(2));
             clientsMap.Add(clients.ElementAt(3).login, clients.ElementAt(3));
 
+            // Sztuczne stworzenie zamówienia - po 1 sztuce kazdego produktu w sklepie.
+            foreach (Product p in products)
+            {
+                p.cartAmount = 1;
+            }
+
             orders.Add(new Order("1", products, clients.ElementAt(0)));
             orders.Add(new Order("2", products, clients.ElementAt(1)));
             orders.Add(new Order("3", products, clients.ElementAt(2)));
+
+            foreach (Product p in products)
+            {
+                p.cartAmount = 0;
+            }
         }
 
         /* Gettery */
