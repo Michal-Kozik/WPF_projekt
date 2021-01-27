@@ -25,7 +25,6 @@ namespace WPF_projekt
             this.products = products;
             this.client = client;
             details = "";
-            //details = $"Imię kupującego: {client.name}, Nazwisko kupującego: {client.surname}";
             price = 0;
             everythingToString = $"ID: {id}\nLogin: {client.login}\nNr telefonu: {client.PhoneNumber}\n";
             foreach (Product p in products)
@@ -34,6 +33,7 @@ namespace WPF_projekt
                 price += p.price * p.cartAmount;
             }
             everythingToString += $"Cena: {price}";
+            details += $"\nCena: {price} zł";
         }
 
         // metody

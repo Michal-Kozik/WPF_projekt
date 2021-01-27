@@ -60,7 +60,7 @@ namespace WPF_projekt
             MagazineListBox.ItemsSource = needSupply;
             ClientsListBox.ItemsSource = clients;
             OrdersListBox.ItemsSource = orders;
-            MagazineListBox.SelectionChanged += ItemSelected;
+            //MagazineListBox.SelectionChanged += ItemSelected;
 
             // Uzupelnienie okna 'Profil'.
             LoginLabel.Content = client.login;
@@ -118,10 +118,12 @@ namespace WPF_projekt
         }
 
         // Zaznaczenie przedmiotu wymagajacego uzupelnienia.
+        /*
         private void ItemSelected(object sender, RoutedEventArgs e)
         {
             SupplyButton.IsEnabled = true;
         }
+        */
 
         // Wylogowanie sie.
         private void LogOut(object sender, RoutedEventArgs e)
@@ -131,8 +133,9 @@ namespace WPF_projekt
             Close();
         }
 
-        // Uzupelnienie produktu.
-        private void SupplyProduct(object sender, RoutedEventArgs e)
+        // Uzupelnienie produktu - stara wersja.
+        /*
+        private void SupplyProduct2(object sender, RoutedEventArgs e)
         {
             if (MagazineListBox.SelectedIndex >= 0)
             {
@@ -142,6 +145,18 @@ namespace WPF_projekt
                 SupplyButton.IsEnabled = false;
                 MessageBox.Show($"Uzupełniono produkt - {product.name}");
             }
+        }
+        */
+
+        // Uzupelnienie produktu - nowa wersja.
+        private void SupplyProduct(object sender, RoutedEventArgs e)
+        {
+            Button cmd = sender as Button;
+            Product product = cmd.Tag as Product;
+
+            product.amount += 10;
+            needSupply.Remove(product);
+            MessageBox.Show($"Uzupełniono produkt - {product.name}.", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         // Walidacja.

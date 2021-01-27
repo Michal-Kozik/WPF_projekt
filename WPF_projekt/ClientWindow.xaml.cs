@@ -213,7 +213,7 @@ namespace WPF_projekt
                     OrderButton.IsEnabled = false;
                 DeleteButton.IsEnabled = false;
                 CartListBox.Items.Refresh();
-                MessageBox.Show($"Usunięto {product.name} z koszyka.");
+                MessageBox.Show($"Usunięto {product.name} z koszyka.", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
@@ -285,7 +285,7 @@ namespace WPF_projekt
             //AddButton.IsEnabled = false;
             OrderButton.IsEnabled = true;
             CartListBox.Items.Refresh();
-            MessageBox.Show($"Dodano {product.name} do koszyka.");
+            MessageBox.Show($"Dodano {product.name} do koszyka.", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }

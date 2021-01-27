@@ -224,7 +224,6 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
                         <RowDefinition />
-                        <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
                     <Label FontSize="30" HorizontalAlignment="Center" FontWeight="Bold" Margin="10">Produkty wymagające uzupełnienia</Label>
                     <ListBox Name="MagazineListBox" Grid.Row="1" BorderBrush="Black" BorderThickness="3" Margin="5" ScrollViewer.CanContentScroll="False" HorizontalContentAlignment="Stretch">
@@ -238,7 +237,7 @@
                                                 <Label Content="{Binding Path=price}"></Label>
                                                 <Label>zł</Label>
                                             </StackPanel>
-                                            <Button DockPanel.Dock="Bottom" Content="Uzupełnij" Margin="5" Width="100" Height="35" Tag="{Binding}" Style="{StaticResource BlackButton}"></Button>
+                                            <Button DockPanel.Dock="Bottom" Click="SupplyProduct" Content="Uzupełnij" Margin="5" Width="100" Height="35" Tag="{Binding}" Style="{StaticResource BlackButton}"></Button>
                                             <Grid/>
                                         </DockPanel>
                                         <Label DockPanel.Dock="Top" FontSize="18" FontWeight="Bold" BorderBrush="LightGray" BorderThickness="0, 0, 0, 1" Content="{Binding Path=name}"></Label>
@@ -257,7 +256,6 @@
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
-                    <Button Name="SupplyButton" Click="SupplyProduct" Grid.Row="2" Height="40" Width="150" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5" IsEnabled="False" Style="{StaticResource BlackButton}">Uzupełnij</Button>
                 </Grid>
             </TabItem>
             <TabItem Header="Klienci">
@@ -355,11 +353,6 @@
                                         <StackPanel Orientation="Horizontal">
                                             <Label Content="Nr telefonu: "></Label>
                                             <Label Content="{Binding Path=client.PhoneNumber}"></Label>
-                                        </StackPanel>
-                                        <StackPanel Orientation="Horizontal">
-                                            <Label Content="Cena: "></Label>
-                                            <Label Content="{Binding Path=price}"></Label>
-                                            <Label>zł</Label>
                                         </StackPanel>
                                     </StackPanel>
                                 </Border>
