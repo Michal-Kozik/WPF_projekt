@@ -77,5 +77,9 @@ namespace WPF_projekt
         }
 
         // metody
+        public void MakeAdmin()
+        {
+            adminRights = true;
+        }
     }
 }

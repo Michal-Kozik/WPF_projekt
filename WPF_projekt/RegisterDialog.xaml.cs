@@ -30,9 +30,10 @@ namespace WPF_projekt
             InitializeComponent();
         }
 
-        /*
+        
         private void CreateAccount(object sender, RoutedEventArgs e)
         {
+            /*
             bool accepted = true;
 
             // Walidacja loginu.
@@ -109,10 +110,11 @@ namespace WPF_projekt
                     accepted = false;
                 } 
             }
+            */
 
-            if (accepted == false)
+            if (loginPassed + passwordPassed + namePassed + surnamePassed + phonePassed != 5)
             {
-                MessageBox.Show("Niepoprawne dane", "Nie wszystkie pola wypełniono poprawnie.", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Nie wszystkie pola wypełniono poprawnie.", "Błąd", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
@@ -123,13 +125,12 @@ namespace WPF_projekt
                 string phoneNumber = PhoneNumberTextBox.Text;
 
                 Client client = new Client(login, password, name, surname, phoneNumber);
+                DataBase.AddClient(client);
+                MessageBox.Show("Utworzenie użytkownika zakończyło się powodzeniem.", "Sukces", MessageBoxButton.OK, MessageBoxImage.Information);
+                Close();
             }
-                
-            
-            
-
         }
-        */
+        
 
         // Walidacja loginu
         private void ValidateLogin(object sender, RoutedEventArgs e)
@@ -151,7 +152,7 @@ namespace WPF_projekt
                 }
             }
 
-            ValidateLoginLabel.Content = "";
+            ValidateLoginLabel.Content = null;
             loginPassed = 1;
         }
 
@@ -166,7 +167,7 @@ namespace WPF_projekt
                 return;
             }
 
-            ValidatePasswordLabel.Content = "";
+            ValidatePasswordLabel.Content = null;
             passwordPassed = 1;
         }
 
@@ -190,7 +191,7 @@ namespace WPF_projekt
                 }
             }
 
-            ValidateNameLabel.Content = "";
+            ValidateNameLabel.Content = null;
             namePassed = 1;
         }
 
@@ -214,7 +215,7 @@ namespace WPF_projekt
                 }
             }
 
-            ValidateSurnameLabel.Content = "";
+            ValidateSurnameLabel.Content = null;
             surnamePassed = 1;
         }
 
@@ -250,8 +251,14 @@ namespace WPF_projekt
                 }
             }
 
-            ValidatePhoneNumberLabel.Content = "";
+            ValidatePhoneNumberLabel.Content = null;
             phonePassed = 1;
+        }
+
+        // Wcisniecie przycisku 'Anuluj'.
+        private void Cancel(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

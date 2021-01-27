@@ -59,13 +59,14 @@ namespace WPF_projekt
             PhoneLabel.Content = client.PhoneNumber;
         }
 
-        // Dodanie produktu do koszyka.
+        // Dodanie produktu do koszyka - do wywalanie.
         private void AddToCart(object sender, RoutedEventArgs e)
         {
             // ~ jeszcze nie jestem pewien czy ten if jest potrzebny
             if (ProductsListBox.SelectedIndex >= 0)
             {
-                Product product = ProductsListBox.SelectedItem as Product;
+            Product product = ProductsListBox.SelectedItem as Product;
+            //Product product = sender as Product;
                 if (product.cartAmount == 0)
                     cart.Add(product);
                 product.cartAmount++;
@@ -76,12 +77,13 @@ namespace WPF_projekt
                 {
                     result += p.price * p.cartAmount;
                 }
-                PriceLabel.Content = $"Cena: {result}";
+                PriceLabel.Content = $"Cena: {result} zł";
 
                 ProductsListBox.SelectedIndex = -1;
                 //AddButton.IsEnabled = false;
                 OrderButton.IsEnabled = true;
                 CartListBox.Items.Refresh();
+
                 MessageBox.Show($"Dodano {product.name} do koszyka.");
             }
         }
@@ -205,7 +207,7 @@ namespace WPF_projekt
                 {
                     result += p.price * p.cartAmount;
                 }
-                PriceLabel.Content = $"Cena: {result}";
+                PriceLabel.Content = $"Cena: {result} zł";
 
                 if (cart.Count() == 0)
                     OrderButton.IsEnabled = false;
@@ -277,7 +279,7 @@ namespace WPF_projekt
             {
                 result += p.price * p.cartAmount;
             }
-            PriceLabel.Content = $"Cena: {result}";
+            PriceLabel.Content = $"Cena: {result} zł";
 
             ProductsListBox.SelectedIndex = -1;
             //AddButton.IsEnabled = false;

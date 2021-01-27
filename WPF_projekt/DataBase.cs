@@ -37,6 +37,7 @@ namespace WPF_projekt
             clients.Add(new Client("bor", "bor123", "Mateusz", "Borek", "782983953"));
             clients.Add(new Client("smoku", "smoku123", "Tomasz", "Smokowski", "892367845"));
             clients.Add(new Client("admin", "admin123", "Jacek", "Nowak", "127635483"));
+            clients.ElementAt(3).MakeAdmin();
 
             clientsMap.Add(clients.ElementAt(0).login, clients.ElementAt(0));
             clientsMap.Add(clients.ElementAt(1).login, clients.ElementAt(1));
@@ -70,6 +71,11 @@ namespace WPF_projekt
         public static void AddOrder(Order order)
         {
             orders.Add(order);
+        }
+        public static void AddClient(Client client)
+        {
+            clients.Add(client);
+            clientsMap.Add(client.login, client);
         }
     }
 }

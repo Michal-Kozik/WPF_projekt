@@ -67,14 +67,7 @@ namespace WPF_projekt
         private void Register(object sender, RoutedEventArgs e)
         {
             RegisterDialog dialog = new RegisterDialog();
-            if (dialog.ShowDialog() == true)
-            {
-
-            }
-            else
-            {
-
-            }
+            dialog.ShowDialog();
         }
     }
 }
